@@ -1,0 +1,276 @@
+
+
+<div class="supplier-container">
+
+  <div *ngIf="error" class="error-message">
+    {{ error }}
+  </div>
+
+  <div *ngIf="!showSupplierDetails" class="search-container">
+    <div class="search-box">
+      <input
+        type="text"
+        [(ngModel)]="searchQuery"
+        placeholder="{{ 'supply.suppliers.search_placeholder' | translate }}"
+        (keyup.enter)="searchSuppliers()"
+      />
+      <button class="search-button" (click)="searchSuppliers()">
+        <i class="material-icons">search</i>
+      </button>
+    </div>
+  </div>
+
+  <div *ngIf="!showSupplierDetails" class="register-container">
+    <button class="register-button" type="button" (click)="openRegisterModal()">
+      {{ 'supply.suppliers.register_button' | translate }}
+    </button>
+  </div>
+
+  <div class="table-container" *ngIf="!showSupplierDetails && !showEditModal && !showRegisterModal">
+    <div *ngIf="loading" class="loading-indicator">
+      <div class="spinner"></div>
+      <p>{{ 'supply.suppliers.loading' | translate }}</p>
+    </div>
+
+    <table class="supplier-table" *ngIf="!loading">
+      <thead>
+      <tr>
+        <th>{{ 'supply.suppliers.columns.name' | translate }}</th>
+        <th>{{ 'supply.suppliers.columns.email' | translate }}</th>
+        <th>{{ 'supply.suppliers.columns.phone' | translate }}</th>
+        <th>{{ 'supply.suppliers.columns.location' | translate }}</th>
+        <th></th>
+        <th></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngIf="suppliers.length === 0">
+        <td colspan="6" class="empty-message">{{ 'supply.suppliers.no_suppliers' | translate }}</td>
+      </tr>
+      <tr *ngFor="let supplier of suppliers">
+        <td>{{ supplier.name }}</td>
+        <td>{{ supplier.email }}</td>
+        <td>{{ supplier.phone }}</td>
+        <td>{{ supplier.location }}</td>
+        <td class="action-cell">
+          <button class="action-button" (click)="viewSupplierDetails(supplier)">
+            <i class="material-icons">search</i>
+          </button>
+        </td>
+        <td class="action-cell">
+          <button class="action-button" (click)="editSupplier(supplier)">
+            <i class="material-icons">edit</i>
+          </button>
+        </td>
+        <td class="action-cell">
+          <button
+            class="action-button"
+            (click)="supplier.id ? deleteSupplier(supplier.id) : null"
+            [disabled]="!supplier.id"
+            title="Eliminar proveedor"
+          >
+            <i class="material-icons">delete</i>
+          </button>
+        </td>
+      </tr>
+
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="showSupplierDetails" class="supplier-details">
+    <h2>{{ 'supply.suppliers.details.title' | translate }}</h2>
+
+    <div class="detail-group">
+      <label>{{ 'supply.suppliers.columns.name' | translate }}:</label>
+      <p>{{ selectedSupplier?.name }}</p>
+    </div>
+
+    <div class="detail-group">
+      <label>{{ 'supply.suppliers.columns.email' | translate }}:</label>
+      <p>{{ selectedSupplier?.email }}</p>
+    </div>
+
+    <div class="detail-group">
+      <label>{{ 'supply.suppliers.columns.phone' | translate }}:</label>
+      <p>{{ selectedSupplier?.phone }}</p>
+    </div>
+
+    <div class="detail-group">
+      <label>{{ 'supply.suppliers.columns.location' | translate }}:</label>
+      <p>{{ selectedSupplier?.location }}</p>
+    </div>
+
+    <div class="detail-group">
+      <label>{{ 'supply.suppliers.columns.specialties' | translate }}:</label>
+      <p>{{ selectedSupplier?.specialties?.join(', ') || ( 'supply.suppliers.no_specialties' | translate ) }}</p>
+    </div>
+
+  </div>
+
+  <div *ngIf="showRegisterModal" class="modal-overlay">
+    <div class="modal-content">
+      <div class="back-button" (click)="closeRegisterModal()">
+        <i class="material-icons">arrow_back</i> {{ 'supply.suppliers.register_title' | translate }}
+      </div>
+
+      <div *ngIf="error" class="error-message">
+        {{ error }}
+      </div>
+
+      <form (ngSubmit)="registerSupplier()" #supplierForm="ngForm">
+        <div class="form-group">
+          <label for="name">{{ 'supply.suppliers.columns.name' | translate }}</label>
+          <input
+            type="text"
+            id="name"
+            [(ngModel)]="newSupplier.name"
+            name="name"
+            required
+            [class.input-invalid]="!!registerFieldErrors['name']"
+            (ngModelChange)="clearRegisterFieldError('name')"
+          />
+          <div *ngIf="registerFieldErrors['name']" class="field-error">{{ registerFieldErrors['name'] }}</div>
+        </div>
+        <div class="form-group">
+          <label for="email">{{ 'supply.suppliers.columns.email' | translate }}</label>
+          <input
+            type="email"
+            id="email"
+            [(ngModel)]="newSupplier.email"
+            name="email"
+            required
+            [class.input-invalid]="!!registerFieldErrors['email']"
+            (ngModelChange)="clearRegisterFieldError('email')"
+          />
+          <div *ngIf="registerFieldErrors['email']" class="field-error">{{ registerFieldErrors['email'] }}</div>
+        </div>
+        <div class="form-group">
+          <label for="phone">{{ 'supply.suppliers.columns.phone' | translate }}</label>
+          <input
+            type="tel"
+            id="phone"
+            [(ngModel)]="newSupplier.phone"
+            name="phone"
+            required
+            [class.input-invalid]="!!registerFieldErrors['phone']"
+            (ngModelChange)="clearRegisterFieldError('phone')"
+          />
+          <div *ngIf="registerFieldErrors['phone']" class="field-error">{{ registerFieldErrors['phone'] }}</div>
+        </div>
+        <div class="form-group">
+          <label for="location">{{ 'supply.suppliers.columns.location' | translate }}</label>
+          <input
+            type="text"
+            id="location"
+            [(ngModel)]="newSupplier.location"
+            name="location"
+            required
+            [class.input-invalid]="!!registerFieldErrors['location']"
+            (ngModelChange)="clearRegisterFieldError('location')"
+          />
+          <div *ngIf="registerFieldErrors['location']" class="field-error">{{ registerFieldErrors['location'] }}</div>
+        </div>
+        <div class="form-group">
+          <label>{{ 'supply.suppliers.columns.specialties' | translate }} ({{ 'supply.suppliers.specialties_hint' | translate }} - máx. 4):</label>
+          <div *ngIf="registerFieldErrors['specialties']" class="field-error">{{ registerFieldErrors['specialties'] }}</div>
+          <div class="specialties-list">
+    <span *ngFor="let specialty of newSpecialties; let i = index" class="specialty-tag">
+      {{ specialty }}
+      <button type="button" (click)="removeNewSpecialty(i)">x</button>
+    </span>
+          </div>
+          <input #newSpecialtyInput type="text" [placeholder]="'supply.suppliers.add_specialty_placeholder' | translate" />
+          <button type="button" (click)="addNewSpecialty(newSpecialtyInput)">+</button>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="submit-button">{{ 'supply.suppliers.register_button' | translate }}</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div *ngIf="showEditModal" class="modal-overlay">
+    <div class="modal-content">
+      <div class="back-button" (click)="closeEditModal()">
+        <i class="material-icons">arrow_back</i> {{ 'supply.suppliers.edit_title' | translate }}
+      </div>
+
+      <div *ngIf="error" class="error-message">
+        {{ error }}
+      </div>
+
+      <form (ngSubmit)="saveSupplierChanges()" #editForm="ngForm">
+        <div class="form-group">
+          <label for="edit-name">{{ 'supply.suppliers.columns.name' | translate }}</label>
+          <input
+            type="text"
+            id="edit-name"
+            [(ngModel)]="editingSupplier.name"
+            name="editName"
+            required
+            [class.input-invalid]="!!editFieldErrors['name']"
+            (ngModelChange)="clearEditFieldError('name')"
+          />
+          <div *ngIf="editFieldErrors['name']" class="field-error">{{ editFieldErrors['name'] }}</div>
+        </div>
+        <div class="form-group">
+          <label for="edit-email">{{ 'supply.suppliers.columns.email' | translate }}</label>
+          <input
+            type="email"
+            id="edit-email"
+            [(ngModel)]="editingSupplier.email"
+            name="editEmail"
+            required
+            [class.input-invalid]="!!editFieldErrors['email']"
+            (ngModelChange)="clearEditFieldError('email')"
+          />
+          <div *ngIf="editFieldErrors['email']" class="field-error">{{ editFieldErrors['email'] }}</div>
+        </div>
+        <div class="form-group">
+          <label for="edit-phone">{{ 'supply.suppliers.columns.phone' | translate }}</label>
+          <input
+            type="tel"
+            id="edit-phone"
+            [(ngModel)]="editingSupplier.phone"
+            name="editPhone"
+            required
+            [class.input-invalid]="!!editFieldErrors['phone']"
+            (ngModelChange)="clearEditFieldError('phone')"
+          />
+          <div *ngIf="editFieldErrors['phone']" class="field-error">{{ editFieldErrors['phone'] }}</div>
+        </div>
+        <div class="form-group">
+          <label for="edit-location">{{ 'supply.suppliers.columns.location' | translate }}</label>
+          <input
+            type="text"
+            id="edit-location"
+            [(ngModel)]="editingSupplier.location"
+            name="editLocation"
+            required
+            [class.input-invalid]="!!editFieldErrors['location']"
+            (ngModelChange)="clearEditFieldError('location')"
+          />
+          <div *ngIf="editFieldErrors['location']" class="field-error">{{ editFieldErrors['location'] }}</div>
+        </div>
+        <div class="form-group">
+          <label>{{ 'supply.suppliers.columns.specialties' | translate }} (máx. 4):</label>
+          <div *ngIf="editFieldErrors['specialties']" class="field-error">{{ editFieldErrors['specialties'] }}</div>
+          <div class="specialties-list">
+    <span *ngFor="let specialty of editingSpecialties; let i = index" class="specialty-tag">
+      {{ specialty }}
+      <button type="button" (click)="removeEditSpecialty(i)">x</button>
+    </span>
+          </div>
+          <input #editSpecialtyInput type="text" [placeholder]="'supply.suppliers.add_specialty_placeholder' | translate" />
+          <button type="button" (click)="addEditSpecialty(editSpecialtyInput)">+</button>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="submit-button">{{ 'supply.suppliers.save_button' | translate }}</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

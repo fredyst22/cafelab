@@ -1,0 +1,146 @@
+<mat-toolbar color="primary">
+  <app-toolbar/>
+</mat-toolbar>
+
+<div class="background">
+  <div class="container">
+    <div class="card">
+
+      <button class="back-button" (click)="goBack()">
+        {{ 'CONFIRM.BACK' | translate }}
+      </button>
+
+      <div class="plan-section">
+        <h2 class="plan-title">{{ selectedPlan?.translationKey | translate }}</h2>
+        <div class="plan-card">
+          <p class="plan-price">
+            ${{ selectedPlan?.price }} / {{ 'PLANS.MONTH' | translate }}
+          </p>
+          <ul class="plan-features">
+            <li *ngFor="let feature of translatedFeatures">• {{ feature }}</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="payment-section">
+        <h2 class="payment-title">{{ 'CONFIRM.PAYMENT.TITLE' | translate }}</h2>
+
+        <form [formGroup]="paymentForm" (ngSubmit)="onSubmit()" class="payment-form">
+
+          <div class="form-field">
+            <input
+              formControlName="email"
+              type="email"
+              placeholder="{{ 'CONFIRM.PAYMENT.EMAIL' | translate }}"
+              [ngClass]="{ 'form-input': true, 'form-input-error': isFieldInvalid('email') }"
+            />
+            <div *ngIf="hasError('email', 'required')" class="error-message">
+              {{ 'CONFIRM.ERRORS.EMAIL_REQUIRED' | translate }}
+            </div>
+            <div *ngIf="hasError('email', 'email')" class="error-message">
+              {{ 'CONFIRM.ERRORS.EMAIL_INVALID' | translate }}
+              <span class="error-example">{{ 'CONFIRM.EXAMPLES.EMAIL' | translate }}</span>
+            </div>
+          </div>
+
+          <div class="form-field">
+            <input
+              formControlName="cardNumber"
+              type="text"
+              placeholder="{{ 'CONFIRM.PAYMENT.CARD_NUMBER' | translate }}"
+              maxlength="16"
+              inputmode="numeric"
+              pattern="\d{16}"
+              (input)="sanitizeInput($event, 16)"
+              [ngClass]="{ 'form-input': true, 'form-input-error': isFieldInvalid('cardNumber') }"
+            />
+            <div *ngIf="hasError('cardNumber', 'required')" class="error-message">
+              {{ 'CONFIRM.ERRORS.CARD_NUMBER_REQUIRED' | translate }}
+            </div>
+            <div *ngIf="hasError('cardNumber', 'pattern')" class="error-message">
+              {{ 'CONFIRM.ERRORS.CARD_NUMBER_INVALID' | translate }}
+              <span class="error-example">{{ 'CONFIRM.EXAMPLES.CARD_NUMBER' | translate }}</span>
+            </div>
+          </div>
+
+          <div class="form-field">
+            <input
+              formControlName="expiry"
+              type="text"
+              placeholder="{{ 'CONFIRM.PAYMENT.EXPIRY' | translate }}"
+              maxlength="5"
+              [ngClass]="{ 'form-input': true, 'form-input-error': isFieldInvalid('expiry') }"
+            />
+            <div *ngIf="hasError('expiry', 'required')" class="error-message">
+              {{ 'CONFIRM.ERRORS.EXPIRY_REQUIRED' | translate }}
+            </div>
+            <div *ngIf="hasError('expiry', 'pattern')" class="error-message">
+              {{ 'CONFIRM.ERRORS.EXPIRY_INVALID' | translate }}
+              <span class="error-example">{{ 'CONFIRM.EXAMPLES.EXPIRY' | translate }}</span>
+            </div>
+          </div>
+
+          <div class="form-field">
+            <input
+              formControlName="cvc"
+              type="text"
+              placeholder="{{ 'CONFIRM.PAYMENT.CVC' | translate }}"
+              maxlength="3"
+              inputmode="numeric"
+              pattern="\d{3}"
+              (input)="sanitizeInput($event, 3)"
+              [ngClass]="{ 'form-input': true, 'form-input-error': isFieldInvalid('cvc') }"
+            />
+            <div *ngIf="hasError('cvc', 'required')" class="error-message">
+              {{ 'CONFIRM.ERRORS.CVC_REQUIRED' | translate }}
+            </div>
+            <div *ngIf="hasError('cvc', 'pattern')" class="error-message">
+              {{ 'CONFIRM.ERRORS.CVC_INVALID' | translate }}
+              <span class="error-example">{{ 'CONFIRM.EXAMPLES.CVC' | translate }}</span>
+            </div>
+          </div>
+
+          <div class="form-field">
+            <input
+              formControlName="cardHolder"
+              type="text"
+              placeholder="{{ 'CONFIRM.PAYMENT.HOLDER' | translate }}"
+              [ngClass]="{ 'form-input': true, 'form-input-error': isFieldInvalid('cardHolder') }"
+            />
+            <div *ngIf="hasError('cardHolder', 'required')" class="error-message">
+              {{ 'CONFIRM.ERRORS.CARD_HOLDER_REQUIRED' | translate }}
+            </div>
+            <div *ngIf="hasError('cardHolder', 'minlength')" class="error-message">
+              {{ 'CONFIRM.ERRORS.CARD_HOLDER_INVALID' | translate }}
+              <span class="error-example">{{ 'CONFIRM.EXAMPLES.CARD_HOLDER' | translate }}</span>
+            </div>
+          </div>
+
+          <div class="form-field">
+            <select
+              formControlName="country"
+              [ngClass]="{ 'form-input': true, 'form-input-error': isFieldInvalid('country') }"
+            >
+              <option value="" disabled selected>{{ 'CONFIRM.PAYMENT.COUNTRY' | translate }}</option>
+              <option *ngFor="let country of latinCountries" [value]="country.code">
+                {{ country.translationKey | translate }}
+              </option>
+            </select>
+            <div *ngIf="hasError('country', 'required')" class="error-message">
+              {{ 'CONFIRM.ERRORS.COUNTRY_REQUIRED' | translate }}
+            </div>
+          </div>
+
+          <button
+            type="submit"
+            class="submit-button"
+            [disabled]="!paymentForm || paymentForm.invalid"
+          >
+            {{ 'CONFIRM.PAYMENT.CONFIRM' | translate }}
+          </button>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

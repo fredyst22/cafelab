@@ -1,0 +1,349 @@
+<nav class="breadcrumb">
+  <a (click)="goToHome()">{{ 'BREADCRUMB.HOME' | translate }}</a>
+  <span> &gt; </span>
+  <a (click)="refreshRoastProfiles()">{{ 'BREADCRUMB.ROAST_PROFILES' | translate }}</a>
+</nav>
+
+<div class="profile-container">
+
+  <div *ngIf="error" class="error-message">
+    {{ error }}
+  </div>
+
+  <div class="filters-container">
+    <div class="search-box">
+      <input
+        type="text"
+        [(ngModel)]="searchQuery"
+        [placeholder]="'ROAST_PROFILE_BC.SEARCH_PLACEHOLDER' | translate"
+        (keyup.enter)="searchProfiles()"
+      >
+      <button class="search-button" (click)="searchProfiles()">
+        <i class="material-icons">search</i>
+      </button>
+    </div>
+
+    <div class="filter-controls">
+      <button class="filter-button" [class.active]="showFavoritesOnly" (click)="toggleShowFavorites()">
+        <i class="material-icons">filter_list</i>
+        <span *ngIf="showFavoritesOnly">{{ 'profile.favorites' | translate }}</span>
+        <span *ngIf="!showFavoritesOnly">{{ 'profile.filter' | translate }}</span>
+      </button>
+
+      <button class="sort-button" (click)="toggleSortOrder()">
+        <i class="material-icons">{{ sortOrder === 'asc' ? 'arrow_upward' : 'arrow_downward' }}</i>
+        <span>{{ sortOrder === 'asc' ? ('SORT.ASC' | translate) : ('SORT.DESC' | translate) }}</span>
+      </button>
+
+      <button class="compare-button" (click)="compareProfiles()">
+        <i class="material-icons">compare_arrows</i>
+        <span>{{ 'Compare.compare' | translate }}</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="table-container" *ngIf="!showProfileDetails && !showEditModal">
+    <div *ngIf="loading" class="loading-indicator">
+      <div class="spinner"></div>
+      <p>{{ 'ROAST_PROFILE_BC.LOADING' | translate }}</p>
+    </div>
+
+    <table class="profile-table" *ngIf="!loading">
+      <thead>
+        <tr>
+          <th>{{ 'profile.columns.name' | translate }}</th>
+          <th>{{ 'profile.columns.type' | translate }}</th>
+          <th>{{ 'profile.columns.duration' | translate }}</th>
+          <th>{{ 'profile.columns.lot' | translate }}</th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngIf="profiles.length === 0">
+          <td colspan="9" class="empty-message">{{ 'ROAST_PROFILE_BC.EMPTY_TABLE' | translate }}</td>
+        </tr>
+        <tr *ngFor="let profile of profiles">
+          <td>{{ profile.name }}</td>
+          <td>{{ roastTypeLabel(profile.type) }}</td>
+          <td>{{ profile.duration }}</td>
+          <td>{{ getLotName(profile.lot) }}</td>
+          <td class="action-cell">
+            <button class="action-button" (click)="toggleFavorite(profile, $event)">
+              <i class="material-icons">{{ profile.isFavorite ? 'star' : 'star_border' }}</i>
+            </button>
+          </td>
+          <td class="action-cell">
+            <button class="action-button" (click)="viewProfileDetails(profile)">
+              <i class="material-icons">search</i>
+            </button>
+          </td>
+          <td class="action-cell">
+            <button class="action-button" (click)="editProfile(profile)">
+              <i class="material-icons">edit</i>
+            </button>
+          </td>
+          <td class="action-cell">
+            <button class="action-button" (click)="duplicateProfile(profile, $event)">
+              <i class="material-icons">content_copy</i>
+            </button>
+          </td>
+          <td class="action-cell">
+            <button
+              class="action-button delete-button"
+              (click)="deleteProfile(profile)"
+              [title]="'ROAST_PROFILE_BC.DELETE_TOOLTIP' | translate"
+            >
+              <i class="material-icons">delete</i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="showProfileDetails" class="profile-details">
+    <div class="breadcrumb">
+      <a routerLink="/dashboard/owner">{{ 'breadcrumb.home' | translate }}</a> &gt;
+      <a (click)="closeProfileDetails()" style="cursor: pointer;">{{ 'breadcrumb.profiles' | translate }}</a> &gt;
+      {{ selectedProfile?.name }}
+    </div>
+
+    <h2>{{ 'profile.detailTitle' | translate }}</h2>
+
+    <div class="detail-columns">
+      <div class="detail-left">
+        <h3>{{ 'profile.curveTitle' | translate }}</h3>
+        <canvas #roastCurveCanvas width="894" height="540" class="curve-image"></canvas>
+      </div>
+
+      <div class="detail-right">
+        <h3>{{ 'profile.informationTitle' | translate }}</h3>
+
+        <div class="detail-group">
+          <label>{{ 'profile.detailDuration' | translate }}</label>
+          <p>{{ selectedProfile?.duration }} min</p>
+        </div>
+
+        <div class="detail-group">
+          <label>{{ 'profile.detailTempStart' | translate }}</label>
+          <p>{{ selectedProfile?.tempStart }} °C</p>
+        </div>
+
+        <div class="detail-group">
+          <label>{{ 'profile.detailTempEnd' | translate }}</label>
+          <p>{{ selectedProfile?.tempEnd }} °C</p>
+        </div>
+
+        <div class="detail-group">
+          <label>{{ 'profile.detailLot' | translate }}</label>
+          <p>{{ getLotName(selectedProfile?.lot) }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="showRegisterModal" class="modal-overlay">
+    <div class="modal-content">
+      <div class="back-button" (click)="closeRegisterModal()">
+        <i class="material-icons">arrow_back</i> {{ 'profile.register.title' | translate }}
+      </div>
+
+      <div *ngIf="error" class="error-message">
+        {{ error }}
+      </div>
+
+      <div *ngIf="registerFieldErrorKeys().length" class="error-message validation-field-summary">
+        <p class="validation-field-summary-title">{{ 'ROAST_PROFILE_BC.VALIDATION.SUMMARY_TITLE' | translate }}</p>
+        <ul class="validation-field-summary-list">
+          <li *ngFor="let key of registerFieldErrorKeys()">
+            <span class="validation-field-name">{{ fieldLabel(key) }}</span>
+            <span class="validation-field-msg"> — {{ fieldErrors[key] }}</span>
+          </li>
+        </ul>
+      </div>
+
+      <form (ngSubmit)="registerProfile()" #profileForm="ngForm">
+          <div class="form-group" [class.has-field-error]="!!fieldErrors['name']">
+            <label for="name">{{ 'profile.fields.name' | translate }}</label>
+            <input type="text" id="name" [(ngModel)]="newProfile.name" name="reg_name" required>
+            <div *ngIf="fieldErrors['name']" class="field-error">{{ fieldErrors['name'] }}</div>
+          </div>
+
+          <div class="form-group" [class.has-field-error]="!!fieldErrors['type']">
+            <label for="type">{{ 'profile.fields.type' | translate }}</label>
+            <select id="type" [(ngModel)]="newProfile.type" name="reg_type" required>
+              <option [ngValue]="''" disabled>{{ 'profile.fields.selectType' | translate }}</option>
+              <option *ngFor="let type of roastTypeCanonical" [ngValue]="type">
+                {{ roastTypeLabel(type) }}
+              </option>
+            </select>
+            <div *ngIf="fieldErrors['type']" class="field-error">{{ fieldErrors['type'] }}</div>
+          </div>
+
+          <div class="form-group" [class.has-field-error]="!!fieldErrors['duration']">
+            <label for="duration">{{ 'profile.fields.duration' | translate }}</label>
+            <input
+              type="number"
+              id="duration"
+              [(ngModel)]="newProfile.duration"
+              name="reg_duration"
+              required
+              [placeholder]="'profile.fields.durationPlaceholder' | translate"
+            >
+            <div *ngIf="fieldErrors['duration']" class="field-error">{{ fieldErrors['duration'] }}</div>
+          </div>
+
+          <div class="form-group" [class.has-field-error]="!!fieldErrors['tempStart']">
+            <label for="tempStart">{{ 'profile.fields.tempStart' | translate }}</label>
+            <input
+              type="number"
+              id="tempStart"
+              [(ngModel)]="newProfile.tempStart"
+              name="reg_tempStart"
+              required
+              [placeholder]="'ROAST_PROFILE_BC.PLACEHOLDER_CELSIUS' | translate"
+            >
+            <div *ngIf="fieldErrors['tempStart']" class="field-error">{{ fieldErrors['tempStart'] }}</div>
+          </div>
+
+        <div class="form-row">
+          <div class="form-group" [class.has-field-error]="!!fieldErrors['tempEnd']">
+            <label for="tempEnd">{{ 'profile.fields.tempEnd' | translate }}</label>
+            <input
+              type="number"
+              id="tempEnd"
+              [(ngModel)]="newProfile.tempEnd"
+              name="reg_tempEnd"
+              required
+              [placeholder]="'ROAST_PROFILE_BC.PLACEHOLDER_CELSIUS' | translate"
+            >
+            <div *ngIf="fieldErrors['tempEnd']" class="field-error">{{ fieldErrors['tempEnd'] }}</div>
+          </div>
+
+          <div class="form-group" [class.has-field-error]="!!fieldErrors['lot']">
+            <label for="lot">{{ 'profile.fields.lot' | translate }}</label>
+            <select id="lot" [(ngModel)]="newProfile.lot" name="reg_lot" required>
+              <option [ngValue]="0" disabled>{{ 'profile.fields.selectLot' | translate }}</option>
+              <option *ngFor="let lot of coffeeLots" [ngValue]="lot.id">{{ lot.lot_name }}</option>
+            </select>
+            <div *ngIf="fieldErrors['lot']" class="field-error">{{ fieldErrors['lot'] }}</div>
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="submit-button">{{ 'profile.register.submit' | translate }}</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div *ngIf="showEditModal && editingProfile" class="modal-overlay">
+    <div class="modal-content">
+      <div class="back-button" (click)="closeEditModal()">
+        <i class="material-icons">arrow_back</i> {{ 'profile.edit.title' | translate }}
+      </div>
+
+      <div *ngIf="error" class="error-message">
+        {{ error }}
+      </div>
+
+      <div *ngIf="editFieldErrorKeys().length" class="error-message validation-field-summary">
+        <p class="validation-field-summary-title">{{ 'ROAST_PROFILE_BC.VALIDATION.SUMMARY_TITLE' | translate }}</p>
+        <ul class="validation-field-summary-list">
+          <li *ngFor="let key of editFieldErrorKeys()">
+            <span class="validation-field-name">{{ fieldLabel(key) }}</span>
+            <span class="validation-field-msg"> — {{ editFieldErrors[key] }}</span>
+          </li>
+        </ul>
+      </div>
+
+      <form (ngSubmit)="saveProfileChanges()" #editForm="ngForm">
+        <div class ="form-group" [class.has-field-error]="!!editFieldErrors['name']">
+            <label for="edit-name">{{ 'profile.fields.name' | translate }}</label>
+            <input type="text" id="edit-name" [(ngModel)]="editingProfile.name" name="edit_name" required>
+            <div *ngIf="editFieldErrors['name']" class="field-error">{{ editFieldErrors['name'] }}</div>
+            <i class="material-icons edit-field-icon">edit</i>
+        </div>
+
+        <div class ="form-group" [class.has-field-error]="!!editFieldErrors['type']">
+        <label for="edit-type">{{ 'profile.fields.type' | translate }}</label>
+            <select id="edit-type" [(ngModel)]="editingProfile.type" name="edit_type" required>
+              <option [ngValue]="''" disabled>{{ 'profile.fields.selectType' | translate }}</option>
+              <option *ngFor="let type of roastTypeCanonical" [ngValue]="type">
+                {{ roastTypeLabel(type) }}
+              </option>
+            </select>
+            <div *ngIf="editFieldErrors['type']" class="field-error">{{ editFieldErrors['type'] }}</div>
+            <i class="material-icons edit-field-icon">edit</i>
+        </div>
+
+          <div class="form-group" [class.has-field-error]="!!editFieldErrors['duration']">
+            <label for="edit-duration">{{ 'profile.fields.duration' | translate }}</label>
+            <input type="number" id="edit-duration" [(ngModel)]="editingProfile.duration" name="edit_duration" required>
+            <div *ngIf="editFieldErrors['duration']" class="field-error">{{ editFieldErrors['duration'] }}</div>
+            <i class="material-icons edit-field-icon">edit</i>
+
+          </div>
+
+          <div class="form-group" [class.has-field-error]="!!editFieldErrors['tempStart']">
+            <label for="edit-tempStart">{{ 'profile.fields.tempStart' | translate }}</label>
+            <input type="number" id="edit-tempStart" [(ngModel)]="editingProfile.tempStart" name="edit_tempStart" required>
+            <div *ngIf="editFieldErrors['tempStart']" class="field-error">{{ editFieldErrors['tempStart'] }}</div>
+            <i class="material-icons edit-field-icon">edit</i>
+          </div>
+
+        <div class="form-row">
+          <div class="form-group" [class.has-field-error]="!!editFieldErrors['tempEnd']">
+            <label for="edit-tempEnd">{{ 'profile.fields.tempEnd' | translate }}</label>
+            <input type="number" id="edit-tempEnd" [(ngModel)]="editingProfile.tempEnd" name="edit_tempEnd" required>
+            <div *ngIf="editFieldErrors['tempEnd']" class="field-error">{{ editFieldErrors['tempEnd'] }}</div>
+            <i class="material-icons edit-field-icon">edit</i>
+          </div>
+
+          <div class="form-group" [class.has-field-error]="!!editFieldErrors['lot']">
+            <label for="edit-lot">{{ 'profile.fields.lot' | translate }}</label>
+            <select id="edit-lot" [(ngModel)]="editingProfile.lot" name="edit_lot" required>
+              <option [ngValue]="0" disabled>{{ 'profile.fields.selectLot' | translate }}</option>
+              <option *ngFor="let lot of coffeeLots" [ngValue]="lot.id">{{ lot.lot_name }}</option>
+            </select>
+            <div *ngIf="editFieldErrors['lot']" class="field-error">{{ editFieldErrors['lot'] }}</div>
+            <i class="material-icons edit-field-icon">edit</i>
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="submit-button">{{ 'profile.edit.submit' | translate }}</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div *ngIf="showDeleteModal" class="modal-overlay">
+    <div class="modal-content delete-modal">
+      <h2>{{ 'profile.delete.title' | translate }}</h2>
+      <p>{{ 'profile.delete.message' | translate }} "{{ profileToDelete?.name }}"?</p>
+      
+      <div class="form-actions">
+        <button class="cancel-button" (click)="cancelDelete()">{{ 'profile.delete.cancel' | translate }}</button>
+        <button class="delete-button" (click)="confirmDelete()">{{ 'profile.delete.confirm' | translate }}</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="register-container" *ngIf="!showProfileDetails && !showEditModal">
+    <button
+      type="button"
+      class="register-button"
+      (click)="openRegisterModal()"
+      [disabled]="coffeeLots.length === 0"
+      [title]="coffeeLots.length === 0 ? ('ROAST_PROFILE_BC.HINT.NEED_LOT' | translate) : ''"
+    >
+      {{ 'profile.registerbutton' | translate }}
+    </button>
+  </div>
+</div>
+

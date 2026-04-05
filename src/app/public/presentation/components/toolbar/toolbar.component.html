@@ -1,0 +1,29 @@
+<mat-toolbar color="primary" class="toolbar">
+  <button type="button" class="toolbar-button logo-button" (click)="redirectToFeatures()">
+    <img src="assets/logo-mark.svg" alt="" class="logo-mark" width="28" height="28" />
+    <span class="brand-text">{{ 'NAVIGATION.BRAND' | translate }}</span>
+  </button>
+  <span class="spacer"></span>
+
+  <div class="toolbar-center">
+    <button mat-button type="button" class="toolbar-button" (click)="redirectToFeatures()">
+      {{ 'NAVIGATION.FEATURES' | translate }}
+    </button>
+    <a mat-button class="toolbar-button" routerLink="/contacto" routerLinkActive="active-link">
+      {{ 'NAVIGATION.CONTACT' | translate }}
+    </a>
+    <a mat-button class="toolbar-button" routerLink="/edit-profile-session" routerLinkActive="active-link">
+      {{ 'NAVIGATION.PROFILE' | translate }}
+    </a>
+  </div>
+
+  <span class="spacer"></span>
+  <div class="toolbar-right">
+    <div class="language-switcher-container">
+      <app-language-switcher></app-language-switcher>
+    </div>
+    <button mat-button type="button" class="toolbar-button logout-btn" (click)="logout()">
+      {{ 'NAVIGATION.LOGOUT' | translate }}
+    </button>
+  </div>
+</mat-toolbar>

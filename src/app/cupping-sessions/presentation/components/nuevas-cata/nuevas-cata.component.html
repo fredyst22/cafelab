@@ -1,0 +1,68 @@
+<div class="dialog-container">
+  <h2 class="dialog-title">{{ 'CUPPING_SESSIONS.NEW_SESSION_TITLE' | translate }}</h2>
+
+  <div class="form-container">
+    <mat-form-field appearance="outline">
+      <mat-label>{{ 'CUPPING_SESSIONS.SESSION_NAME_LABEL' | translate }}</mat-label>
+      <input
+        matInput
+        [(ngModel)]="form.name"
+        name="name"
+        [placeholder]="'CUPPING_SESSIONS.SESSION_NAME_PLACEHOLDER' | translate"
+      />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>{{ 'CUPPING_SESSIONS.ORIGIN' | translate }}</mat-label>
+      <input
+        matInput
+        [(ngModel)]="form.origin"
+        name="origin"
+        [placeholder]="'CUPPING_SESSIONS.ORIGIN_PLACEHOLDER' | translate"
+      />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>{{ 'CUPPING_SESSIONS.VARIETY' | translate }}</mat-label>
+      <input
+        matInput
+        [(ngModel)]="form.variety"
+        name="variety"
+        [placeholder]="'CUPPING_SESSIONS.VARIETY_PLACEHOLDER' | translate"
+      />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>{{ 'CUPPING_SESSIONS.PROCESSING' | translate }}</mat-label>
+      <mat-select [(ngModel)]="form.processing" name="processing">
+        <mat-option *ngFor="let code of processingCodes" [value]="code">
+          {{ 'CUPPING_SESSIONS.PROCESSING_CODES.' + code | translate }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>{{ 'CUPPING_SESSIONS.SESSION_DATE_LABEL' | translate }}</mat-label>
+      <input matInput [matDatepicker]="picker" [(ngModel)]="form.sessionDate" name="sessionDate" />
+      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>{{ 'CUPPING_SESSIONS.ROAST_STYLE_NOTES_LABEL' | translate }}</mat-label>
+      <textarea
+        matInput
+        rows="2"
+        [(ngModel)]="form.roastStyleNotes"
+        name="roastStyleNotes"
+        [placeholder]="'CUPPING_SESSIONS.ROAST_STYLE_NOTES_PLACEHOLDER' | translate"
+      ></textarea>
+    </mat-form-field>
+  </div>
+
+  <div class="actions">
+    <button mat-raised-button class="create-button" type="button" (click)="crearSesion()">
+      {{ 'CUPPING_SESSIONS.CREATE_BUTTON' | translate }}
+    </button>
+  </div>
+</div>

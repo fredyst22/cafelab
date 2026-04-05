@@ -1,0 +1,19 @@
+<mat-toolbar color="primary" class="pnf-toolbar-wrap">
+  <app-toolbar />
+</mat-toolbar>
+
+<div class="pnf-background">
+  <div class="pnf-container">
+    <div class="pnf-card">
+      <div class="pnf-accent-bar" aria-hidden="true"></div>
+      <p class="pnf-code">404</p>
+      <h1 class="pnf-title">{{ 'PAGE_NOT_FOUND.TITLE' | translate }}</h1>
+      <p class="pnf-message">
+        {{ 'PAGE_NOT_FOUND.MESSAGE' | translate: { path: invalidPath } }}
+      </p>
+      <button type="button" class="pnf-button" (click)="onNavigateToFeatures()">
+        {{ 'PAGE_NOT_FOUND.FEATURES_BUTTON' | translate }}
+      </button>
+    </div>
+  </div>
+</div>

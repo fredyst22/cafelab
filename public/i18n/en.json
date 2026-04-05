@@ -1,0 +1,1099 @@
+{
+  "PAGE_NOT_FOUND": {
+    "TITLE": "Page not found",
+    "MESSAGE": "There is no route for \"{{path}}\".",
+    "FEATURES_BUTTON": "Go to features",
+    "HOME_BUTTON": "Go home"
+  },
+  "COMMON": {
+    "LOADING": "Loading...",
+    "DELETING": "Deleting...",
+    "NOT_AVAILABLE": "N/A",
+    "KG": "kg"
+  },
+  "NAVIGATION": {
+    "HOME": "Home",
+    "BRAND": "Café Lab",
+    "FEATURES": "Features",
+    "CONTACT": "Contact us",
+    "PROFILE": "Profile",
+    "LOGOUT": "Log Out",
+    "LOGOUT_CONFIRM_TITLE": "Sign out",
+    "LOGOUT_CONFIRM_MESSAGE": "Are you sure you want to sign out?",
+    "LOGOUT_CONFIRM": "Sign out",
+    "LOGOUT_CANCEL": "Cancel",
+    "DRINKS": "Drinks",
+    "RECIPES": "Recipes",
+    "PORTFOLIO": "Portfolio"
+  },
+  "CONSULTATIONS": {
+    "TITLE": "Defects Library",
+    "BREADCRUMB_HOME": "Home",
+    "BREADCRUMB_LIBRARY": "Defects Library",
+    "CUPPING_SESSIONS": "Cupping Sessions",
+    "SEARCH_COFFEE": "Coffee Type",
+    "SEARCH_DEFECT": "Defect Type",
+    "TABLE": {
+      "WEIGHT": "Weight",
+      "COFFEE": "Coffee",
+      "DEFECT": "Defect",
+      "PERCENTAGE": "Percentage"
+    },
+    "ADD_DEFECT": "Add defect",
+    "NO_DATA": "No data"
+  },
+  "DEFECT_FILE": {
+    "TITLE": "Defect file",
+    "CAUSES": "Probable causes",
+    "SOLUTIONS": "Recommended solutions",
+    "CLOSE": "Close"
+  },
+  "ADD_DEFECT": {
+    "TITLE": "Register Defect",
+    "COFFEE_DATA": "Coffee data",
+    "COFFEE_ID": "Coffee number",
+    "COFFEE_NAME": "Coffee name",
+    "COFFEE_REGION": "Region",
+    "COFFEE_VARIETY": "Variety",
+    "COFFEE_WEIGHT": "Total weight",
+    "DEFECT_DATA": "Defect data",
+    "DEFECT_NAME": "Defect name",
+    "DEFECT_TYPE": "Defect type",
+    "DEFECT_WEIGHT": "Defect weight",
+    "DEFECT_PERCENTAGE": "Percentage",
+    "DEFECT_CAUSE": "Probable cause",
+    "DEFECT_SOLUTION": "Probable solution",
+    "SAVE": "Save data",
+    "CANCEL": "Cancel"
+  },
+  "LOGIN": {
+    "TITLE": "Log in",
+    "EMAIL": "Email",
+    "PASSWORD": "Password",
+    "SUBMIT": "Log In",
+    "REGISTER_BARISTA": "Register as Barista",
+    "REGISTER_OWNER": "Register as Cafeteria Owner",
+    "ERROR_FAILED": "Could not sign in. Check your email and password.",
+    "ERROR_PROFILE": "Signed in but the profile could not be loaded. Please try again."
+  },
+  "LOGIN_SUCCESS": {
+    "TITLE": "Login Successful",
+    "MESSAGE": "Welcome, {{name}}!",
+    "CONTINUE": "Continue"
+  },
+  "LOGUP": {
+    "NAME": "Name",
+    "EMAIL": "Email",
+    "PASSWORD": "Password",
+    "EXPERIENCE": "Experience Level",
+    "EXPERIENCEA": "Years of experience",
+    "CAFETERIA_NAME": "Cafeteria Name",
+    "EXPERIENCE_INITIAL": "Beginner",
+    "EXPERIENCE_INTERMEDIATE": "Intermediate",
+    "EXPERIENCE_PROFESSIONAL": "Professional",
+    "SUBMIT": "Sign Up",
+    "EXPERIENCEY": "Years of experience",
+    "EXPERIENCE_0_3": "0 - 3 years",
+    "EXPERIENCE_4_7": "4 - 7 years",
+    "EXPERIENCE_8_PLUS": "8 or more years"
+  },
+  "LOGUP_BARISTA": {
+    "TITLE": "Barista Registration"
+  },
+  "LOGUP_BARISTA_SUCCESS": {
+    "TITLE": "Registration Successful",
+    "MESSAGE": "Your barista account has been created successfully.",
+    "CONTINUE": "Go to Edit Profile"
+  },
+  "LOGUP_OWNER": {
+    "TITLE": "Cafeteria Owner Registration"
+  },
+  "LOGUP_OWNER_SUCCESS": {
+    "TITLE": "Registration Successful",
+    "MESSAGE": "Your cafeteria owner account has been created successfully.",
+    "CONTINUE": "Go to Edit Profile"
+  },
+  "EDIT_PROFILE": {
+    "TITLE": "Edit Profile",
+    "NAME": "Name",
+    "EMAIL": "Email",
+    "CAFETERIA_NAME": "Cafeteria Name",
+    "EXPERIENCE": "Experience",
+    "PAYMENT_METHOD": "Payment Method",
+    "VISA": "Visa",
+    "MASTERCARD": "Mastercard",
+    "SUBMIT": "Save",
+    "CONTINUE": "Continue",
+    "SAVE_CHANGES": "Save Changes",
+    "CHANGE_PLAN": "Change Plan",
+    "CAFETERIA_REQUIRED_HINT": "Required on the full plan for barista profiles."
+  },
+  "COUNTRIES": {
+    "ARGENTINA": "Argentina",
+    "BOLIVIA": "Bolivia",
+    "BRAZIL": "Brasil",
+    "CHILE": "Chile",
+    "COLOMBIA": "Colombia",
+    "COSTA_RICA": "Costa Rica",
+    "CUBA": "Cuba",
+    "DOMINICAN_REPUBLIC": "República Dominicana",
+    "ECUADOR": "Ecuador",
+    "GUATEMALA": "Guatemala",
+    "HONDURAS": "Honduras",
+    "MEXICO": "México",
+    "NICARAGUA": "Nicaragua",
+    "PANAMA": "Panamá",
+    "PARAGUAY": "Paraguay",
+    "PERU": "Perú",
+    "PUERTO_RICO": "Puerto Rico",
+    "EL_SALVADOR": "El Salvador",
+    "URUGUAY": "Uruguay",
+    "VENEZUELA": "Venezuela"
+  },
+  "PLANS": {
+    "MONTH": "month",
+    "BARISTA": {
+      "TITLE": "Barista Plan",
+      "BUTTON": "Start Barista Plan",
+      "FEATURES": [
+        "Cupping sessions",
+        "Defect library",
+        "Roast-Flavor correlation",
+        "Grind calibration",
+        "Recipes"
+      ]
+    },
+    "OWNER": {
+      "TITLE": "Owner/Admin Plan",
+      "BUTTON": "Start Owner/Admin Plan",
+      "FEATURES": [
+        "Suppliers",
+        "Inventory",
+        "Coffee lots",
+        "Cost management",
+        "Roasting profiles"
+      ]
+    },
+    "FULL": {
+      "TITLE": "Full Plan",
+      "BUTTON": "Start Full Plan",
+      "FEATURES": [
+        "Barista Plan",
+        "Owner/Admin Plan"
+      ]
+    }
+  },
+  "CONFIRM": {
+    "BACK": "Back",
+    "PAYMENT": {
+      "TITLE": "Payment Information",
+      "EMAIL": "Email address",
+      "CARD_NUMBER": "Card number",
+      "EXPIRY": "Expiry date",
+      "CVC": "CVC code",
+      "HOLDER": "Cardholder name",
+      "COUNTRY": "Country",
+      "CONFIRM": "Confirm Payment"
+    },
+    "ERRORS": {
+      "EMAIL_REQUIRED": "Email address is required",
+      "EMAIL_INVALID": "Email format is not valid",
+      "CARD_NUMBER_REQUIRED": "Card number is required",
+      "CARD_NUMBER_INVALID": "Card number must have 16 digits",
+      "EXPIRY_REQUIRED": "Expiry date is required",
+      "EXPIRY_INVALID": "Expiry date must be in MM/YY format",
+      "CVC_REQUIRED": "CVC code is required",
+      "CVC_INVALID": "CVC code must have 3 digits",
+      "CARD_HOLDER_REQUIRED": "Cardholder name is required",
+      "CARD_HOLDER_INVALID": "Cardholder name must have at least 2 characters",
+      "COUNTRY_REQUIRED": "Country is required",
+      "COUNTRY_INVALID": "Country must have at least 2 characters"
+    },
+    "EXAMPLES": {
+      "EMAIL": "Example: user@example.com",
+      "CARD_NUMBER": "Example: 1234567890123456",
+      "EXPIRY": "Example: 12/25",
+      "CVC": "Example: 123",
+      "CARD_HOLDER": "Example: John Smith",
+      "COUNTRY": "Example: United States"
+    }
+  },
+  "WELCOME": {
+    "TITLE": "Welcome to Coffee Lab",
+    "SUBTITLE": "Management system for coffee laboratories",
+    "BUTTONS": {
+      "SUPPLIERS": "Supplier Management",
+      "BATCHES": "Lots Management",
+      "ROAST_PROFILES": "Roast Profiles",
+      "INVENTORY": "Inventory",
+      "COST_MANAGEMENT": "Cost Management",
+      "CUPPING_SESSIONS": "Cupping Sessions",
+      "DEFECT_LIBRARY": "Defect Library",
+      "ROAST_FLAVOR_CORRELATION": "Roast-Flavor Correlation",
+      "GRIND_CALIBRATION": "Grind Calibration",
+      "BREW_RECIPES": "Brew Recipes"
+    }
+  },
+  "CONTACT": {
+    "MAIN_TITLE": "Do you have questions, suggestions or need help? At Cafelab we are here to support you and your coffee shop. Write to us!",
+    "FORM_TITLE": "Contact Us",
+    "FORM": {
+      "NAME": "Name",
+      "NAME_PLACEHOLDER": "Enter your full name",
+      "EMAIL": "Email",
+      "EMAIL_PLACEHOLDER": "your@email.com",
+      "SUBJECT": "Subject",
+      "SUBJECT_PLACEHOLDER": "Title of your inquiry",
+      "MESSAGE": "Message",
+      "MESSAGE_PLACEHOLDER": "Describe your inquiry, suggestion or help request...",
+      "ATTACHMENTS": "Attach files",
+      "SEND": "Send"
+    },
+    "CARDS": {
+      "EMAIL_TITLE": "Email",
+      "WHATSAPP_TITLE": "WhatsApp",
+      "LINKEDIN_TITLE": "LinkedIn",
+      "LINKEDIN_TEXT": "Follow us on LinkedIn",
+      "LOCATION_TITLE": "Location",
+      "LOCATION_TEXT": "View our location"
+    },
+    "SCHEDULE": "Office hours: Monday to Friday from 9:00 a.m. to 6:00 p.m. (local time)",
+    "MAP": {
+      "TITLE": "Our Location"
+    },
+    "FAQ": {
+      "TITLE": "Frequently Asked Questions",
+      "QUESTION_1": "How can I register on the platform?",
+      "ANSWER_1": "To register, click the 'Sign Up' button at the top of the page. Complete the form with your personal and business information. Once submitted, you will receive a confirmation email to activate your account.",
+      "QUESTION_2": "What features are included in my free account?",
+      "ANSWER_2": "The free account includes basic access to coffee batch recording, basic supplier management and coffee defect consultation. For advanced features like detailed analytics and custom reports, you can upgrade to a premium plan.",
+      "QUESTION_3": "How can I recover my password?",
+      "ANSWER_3": "On the login page, click 'Forgot your password?' Enter your registered email and we will send you a link to reset your password. Follow the instructions in the email to create a new password.",
+      "QUESTION_4": "Can I change my subscription plan at any time?",
+      "ANSWER_4": "Yes, you can upgrade or change your subscription plan at any time from your account settings. Changes will be applied immediately and billing will be prorated accordingly.",
+      "QUESTION_5": "How can I contact technical support?",
+      "ANSWER_5": "You can contact us through this form, by sending an email to contacto@cafelab.com, via WhatsApp at +51 912 345 678, or through our LinkedIn profile. Our office hours are Monday to Friday from 9:00 a.m. to 6:00 p.m."
+    }
+  },
+  "navbar": {
+    "home": "Home"
+  },
+  "supply": {
+    "suppliers": {
+      "title": "Suppliers",
+      "search_placeholder": "Search suppliers...",
+      "loading": "Loading...",
+      "no_suppliers": "No suppliers registered",
+      "register_button": "Register Supplier",
+      "register_title": "New Supplier",
+      "edit_title": "Edit Supplier",
+      "save_button": "Save Changes",
+      "details": {
+        "title": "Supplier Details",
+        "general_info": "General information"
+      },
+      "no_specialties": "N/A",
+      "specialties_hint": "comma separated",
+      "columns": {
+        "name": "Name",
+        "email": "Email",
+        "phone": "Phone",
+        "location": "Location",
+        "specialties": "Specialties",
+        "user_id": "User ID"
+      },
+      "add_specialty_placeholder": "Add Especialty"
+    }
+  },
+  "BREADCRUMB": {
+    "HOME": "Home",
+    "COFFEE_LOTS": "Coffee Lots",
+    "DASHBOARD": "Dashboard",
+    "COST_MANAGEMENT": "Cost Management",
+    "ROAST_PROFILES": "Roast Profiles",
+    "SUPPLIERS": "Suppliers",
+    "CUPPING_SESSIONS": "Cupping sessions",
+    "DEFECT_LIBRARY": "Defect library",
+    "GRIND_CALIBRATION": "Grind calibration",
+    "BREW_RECIPES": "Drinks & recipes",
+    "RECIPE_VIEW": "Recipe",
+    "PORTFOLIO_VIEW": "Portfolio"
+  },
+  "SEARCH": {
+    "PLACEHOLDER": "Search lot..."
+  },
+  "TABLE": {
+    "HEADER": {
+      "NAME": "Name",
+      "COFFEE_TYPE": "Coffee Type",
+      "ALTITUDE": "Altitude (masl)",
+      "SUPPLIER": "Supplier",
+      "ACTIONS": "Actions"
+    },
+    "NO_LOTS": "No coffee lots registered"
+  },
+  "FORM": {
+    "LABEL": {
+      "NAME": "Name",
+      "COFFEE_TYPE": "Coffee Type",
+      "ALTITUDE": "Altitude (masl)",
+      "ORIGIN": "Origin(specify in the location)",
+      "WEIGHT": "Weight (kg)",
+      "PROCESS": "Processing Method",
+      "SUPPLIER": "Supplier",
+      "CERTIFICATIONS": "Certifications",
+      "STATUS": "Status"
+    },
+    "SELECT_PLACEHOLDER": {
+      "SELECT_TYPE": "Select type",
+      "SELECT_PROCESS": "Select process",
+      "SELECT_SUPPLIER": "Select supplier",
+      "SELECT_CERTIFICATION": "Select certification",
+      "SELECT_STATUS": "Select status"
+    },
+    "STATUS_OPTIONS": {
+      "GREEN": "Green Coffee",
+      "ROASTED": "Roasted Coffee"
+    }
+  },
+  "NAV": {
+    "LOTS": "Lots"
+  },
+  "BUTTON": {
+    "VIEW": "View",
+    "SAVE": "Save",
+    "CANCEL": "Cancel",
+    "EDIT": "Edit",
+    "DELETE": "Delete",
+    "REGISTER_LOT": "Register Lot",
+    "ADD": "Add",
+    "REMOVE": "Remove",
+    "REGISTER": "Register",
+    "CANCELR": "Cancel",
+    "BACK": "Back",
+    "COMPARE_ROAST_PROFILE": "Compare Roast Profile"
+  },
+  "MODAL": {
+    "NEW_COFFEE_LOT": "New Coffee Lot",
+    "LOT_DETAILS": "Details",
+    "EDIT_LOT": "Edit Lot",
+    "DELETE_CONFIRMATION": {
+      "TITLE": "Confirm Deletion",
+      "MESSAGE": "Are you sure you want to delete the lot '{{lotName}}'? This action cannot be undone.",
+      "CONFIRM": "Delete",
+      "CANCEL": "Cancel"
+    }
+  },
+  "profile": {
+    "detailTitle": "Roast profile details",
+    "register": {
+      "title": "New Roast Profile",
+      "submit": "Register Profile"
+    },
+    "fields": {
+      "name": "Profile Name",
+      "type": "Type of Coffee",
+      "selectType": "Select type",
+      "duration": "Total Roasting Time (min)",
+      "durationPlaceholder": "Ej: 12",
+      "tempStart": "Initial Grain Temperature (°C)",
+      "tempEnd": "Desired Final Temperature (°C)",
+      "lot": "Linked Lot",
+      "selectLot": "Select lot"
+    },
+    "columns": {
+      "name": "Name",
+      "type": "Type",
+      "duration": "Duration",
+      "lot": "Lot"
+    },
+    "edit": {
+      "title": "Edit Roast Profile",
+      "submit": "Save Changes"
+    },
+    "detailName": "Name:",
+    "detailType": "Type:",
+    "detailDuration": "Duration:",
+    "detailLot": "Lot:",
+    "favorites": "Favorites",
+    "filter": "Filter",
+    "registerbutton": "Register roast profile",
+    "title": "Home",
+    "secondTile": "Roasting profiles",
+    "curveTitle": "Roasting process curve",
+    "informationTitle": "Information:",
+    "detailTempStart": "Initial temperature",
+    "detailTempEnd": "Final Temperature",
+    "delete": {
+      "title": "Delete profile",
+      "message": "Do you want to drop this profile: ",
+      "cancel": "Cancel",
+      "confirm": "Confirm"
+    }
+  },
+  "comparison": {
+    "tuesteLabel": "Roasting profile",
+    "graficoTitulo": "Roast Profile Comparison",
+    "graficoTitulo2": "Simulated roasting curve",
+    "minutos": "min",
+    "gradosCelsius": "°C",
+    "temperaturaGrano": "Bean temperature",
+    "temperaturaTambor": "Drum temperature",
+    "firstCrack": "First Crack (estimated)",
+    "secondCrack": "Second Crack (estimated)"
+  },
+  "Compare": {
+    "compare": "Compare"
+  },
+  "SORT": {
+    "ASC": "Latest",
+    "DESC": "Oldest"
+  },
+  "breadcrumb": {
+    "perfilesTueste": "Roasting Profiles",
+    "comparacionTuestes": "Roast Comparison",
+    "inicio": "Home",
+    "home": "Home",
+    "profiles": "Roasting Profiles"
+  },
+  "portfolio": {
+    "title": "Portfolios",
+    "create": "Create Portfolio",
+    "edit": "Edit Portfolio",
+    "delete": "Delete Portfolio",
+    "add_recipes": "Add recipes",
+    "no_recipes": "This portfolio doesn't have any recipes yet. Add some using the \"Add recipes\" button.",
+    "delete_confirmation": "Are you sure you want to delete this portfolio? All associated recipes will no longer be related.",
+    "name_label": "Portfolio Name",
+    "actions": {
+      "save": "Save",
+      "create": "Create",
+      "cancel": "Cancel",
+      "edit": "Edit",
+      "delete": "Delete"
+    },
+    "messages": {
+      "updated": "Portfolio updated successfully",
+      "deleted": "Portfolio deleted successfully",
+      "error_loading": "Error loading portfolio",
+      "error_updating": "Error updating portfolio",
+      "error_deleting": "Error deleting portfolio"
+    },
+    "delete_confirmation_title": "Delete Portfolio",
+    "delete_confirmation_message": "Are you sure you want to delete the portfolio '{{name}}'? This action cannot be undone."
+  },
+  "recipes": {
+    "title": "Unassigned Drinks",
+    "create": "Create Drink",
+    "add_to_portfolio": "Add recipes to portfolio",
+    "no_available": "No recipes available to add.",
+    "actions": {
+      "add": "Add recipes",
+      "remove": "Remove from portfolio"
+    },
+    "messages": {
+      "added": "Recipes added successfully",
+      "removed": "Recipe removed from portfolio",
+      "error_loading": "Error loading recipes",
+      "error_adding": "Error adding recipes to portfolio",
+      "error_removing": "Error removing recipe associations"
+    },
+    "creation": {
+      "title": "Create Recipe",
+      "name": "Recipe Name",
+      "name_placeholder": "Enter recipe name",
+      "name_required": "Name is required",
+      "extraction_coffee": "Coffee Extraction",
+      "extraction_espresso": "Espresso",
+      "extraction_method": "Extraction Method",
+      "extraction_methods": {
+        "pour-over": "Pour Over",
+        "french-press": "French Press",
+        "cold-brew": "Cold Brew",
+        "aeropress": "AeroPress",
+        "chemex": "Chemex",
+        "v60": "V60",
+        "clever": "Clever Dripper",
+        "espresso": "Espresso",
+        "coffee": "Coffee"
+      },
+      "upload_image": "Image URL",
+      "image_placeholder": "Enter image URL",
+      "image_required": "Image URL is required",
+      "lote": "Batch",
+      "tueste": "Roast",
+      "cata": "Cupping",
+      "portfolio": "Portfolio",
+      "no_portfolio": "No portfolio",
+      "molienda": "Grind",
+      "ratio": "Ratio",
+      "tiempo": "Time",
+      "tiempo_placeholder": "Preparation time",
+      "ingredientes": "Ingredients",
+      "ingrediente": "Ingredient",
+      "ingrediente_placeholder": "Ingredient name",
+      "medida": "Amount",
+      "medida_placeholder": "Enter amount",
+      "unidades": {
+        "gr": "Grams (gr)",
+        "ml": "Milliliters (ml)",
+        "oz": "Ounces (oz)",
+        "cups": "Cups",
+        "tbsp": "Tablespoons",
+        "tsp": "Teaspoons"
+      },
+      "add_ingredient": "Add Ingredient",
+      "pasos": "Preparation Steps",
+      "pasos_placeholder": "Describe the steps to prepare the drink",
+      "consejos": "Tips",
+      "consejos_placeholder": "Add useful tips",
+      "submit": "Save Recipe",
+      "form_validation_title": "Cannot save yet",
+      "form_validation_generic": "Check the fields highlighted in red.",
+      "ratio_required": "Select a brew ratio",
+      "steps_required": "Describe the preparation steps",
+      "preparation_time_required": "Enter preparation time (whole number)",
+      "preparation_time_invalid": "Time must be a whole number greater than or equal to 0",
+      "grind_required": "Select a grind size",
+      "ingredient_name_required": "Enter the ingredient name",
+      "ingredient_amount_required": "Enter the amount",
+      "ingredient_unit_required": "Select a unit",
+      "extraction_method_required": "Select an extraction method",
+      "extraction_category_required": "Select an extraction type",
+      "success": "Recipe created successfully",
+      "error": "Error creating recipe",
+      "error_loading_portfolios": "Error loading portfolios",
+      "error_loading_lots": "Error al cargar los lotes",
+      "no_cupping_session": "No cupping session",
+      "error_loading_cupping_sessions": "Error loading cupping sessions"
+    },
+    "detail": {
+      "basic_info": "Basic Information",
+      "error_loading": "Error loading recipe",
+      "back": "Back",
+      "created_at": "Created on",
+      "delete_confirmation_title": "Delete Recipe",
+      "delete_confirmation_message": "Are you sure you want to delete the recipe \"{{name}}\"? This action cannot be undone.",
+      "cancel": "Cancel",
+      "confirm_delete": "Delete",
+      "delete_success": "Recipe deleted successfully",
+      "delete_error": "Error deleting recipe"
+    },
+    "edit": {
+      "title": "Edit Recipe",
+      "submit": "Save Changes",
+      "success": "Recipe updated successfully",
+      "error_loading_cupping_sessions": "Error loading cupping sessions",
+      "error": "Error updating recipe"
+    }
+  },
+  "RECIPE_BC": {
+    "ERRORS": {
+      "LOAD": "Recipes could not be loaded.",
+      "REGISTER": "The recipe could not be created.",
+      "UPDATE": "The recipe could not be updated.",
+      "DELETE": "The recipe could not be deleted.",
+      "DETAIL": "The recipe could not be loaded."
+    }
+  },
+  "PORTFOLIO_BC": {
+    "ERRORS": {
+      "LOAD": "Portfolios could not be loaded.",
+      "REGISTER": "The portfolio could not be created.",
+      "UPDATE": "The portfolio could not be updated.",
+      "DELETE": "The portfolio could not be deleted.",
+      "DETAIL": "The portfolio could not be loaded."
+    }
+  },
+  "CUPPING_BC": {
+    "ERRORS": {
+      "LOAD": "Cupping sessions could not be loaded.",
+      "REGISTER": "The session could not be created.",
+      "UPDATE": "The session could not be updated.",
+      "DELETE": "The session could not be deleted.",
+      "DETAIL": "The session could not be loaded."
+    }
+  },
+  "CUPPING_SESSIONS": {
+    "SEARCH_SESSIONS": "Search sessions",
+    "NAME": "Name",
+    "DATE": "Date",
+    "ORIGIN": "Origin",
+    "VARIETY": "Variety",
+    "ACTIONS": "Actions",
+    "COMPARE": "Compare sessions",
+    "RECORD_CUPPING": "Record new cupping",
+    "FILTER_TITLE": "Filter sessions",
+    "PROCESSING": "Processing",
+    "FILTER_APPLY": "Apply filters",
+    "FILTER_ANY": "Any",
+    "NEW_SESSION_TITLE": "New cupping session",
+    "SESSION_NAME_LABEL": "Session name",
+    "SESSION_NAME_PLACEHOLDER": "Enter the session name",
+    "ORIGIN_PLACEHOLDER": "e.g. Colombia, Huila",
+    "VARIETY_PLACEHOLDER": "e.g. Caturra",
+    "ROAST_STYLE_NOTES_LABEL": "Roast / process notes (optional)",
+    "ROAST_STYLE_NOTES_PLACEHOLDER": "Free text, not linked to a roast profile",
+    "SESSION_DATE_LABEL": "Session date",
+    "SORT_BY": "Sort by",
+    "SORT_RECENT": "Newest first",
+    "SORT_OLDEST": "Oldest first",
+    "SORT_NAME": "Name A–Z",
+    "FAVORITES_ONLY": "Favorites only",
+    "OPEN_FILTERS": "Filters",
+    "COMPARE_TITLE": "Compare two sessions",
+    "COMPARE_VISUAL_RADARS": "Sensory hexagon (visual comparison)",
+    "COMPARE_SELECT_TWO_RADARS": "Select both sessions above to see both radar charts side by side.",
+    "SELECT_SESSION_A": "Session A",
+    "SELECT_SESSION_B": "Session B",
+    "COMPARE_METRIC": "Attribute",
+    "COMPARE_SESSION_A": "Session A",
+    "COMPARE_SESSION_B": "Session B",
+    "BACK_TO_LIST": "Back to list",
+    "COMPARISON_ALT": "Cupping comparison",
+    "PROCESSING_CODES": {
+      "washed": "Washed",
+      "natural": "Natural",
+      "honey": "Honey",
+      "experimental": "Experimental"
+    },
+    "CREATE_BUTTON": "Create session",
+    "TOGGLE_FAVORITE": "Toggle favorite",
+    "VIEW_DETAILS": "View details",
+    "DELETE_SESSION": "Delete session",
+    "DELETE_SESSION_TITLE": "Confirm deletion",
+    "CONFIRM_DELETE": "Are you sure you want to delete the session '{{name}}'? This action cannot be undone.",
+    "DELETE_SUCCESS": "The session '{{name}}' has been successfully deleted.",
+    "DELETE_ERROR": "Error deleting the session. Please try again.",
+    "CLOSE": "Close"
+  },
+  "CUPPING_DETAILS": {
+    "TITLE": "Sensory evaluation",
+    "CONFIG_TITLE": "Session data",
+    "AROMA": "Aroma",
+    "BODY": "Body",
+    "ACIDITY": "Acidity",
+    "SWEETNESS": "Sweetness",
+    "BITTERNESS": "Bitterness",
+    "AFTERTASTE": "Aftertaste",
+    "GENERATE_HEXAGON": "Generate sensory hexagon",
+    "DETECT_DEFECTS_PROMPT": "Did you detect any defects during the tasting?",
+    "DEFECTS_LIBRARY_BUTTON": "Defects library",
+    "ORIGIN": "Origin",
+    "VARIETY": "Variety",
+    "PROCESSING": "Processing",
+    "DATE": "Date",
+    "ROAST_STYLE_NOTES": "Roast / process notes",
+    "SAVE_SESSION_BUTTON": "Save session",
+    "SAVE_SUCCESS": "Session saved",
+    "NAME_REQUIRED": "Session name is required",
+    "SAVE_ERROR": "Could not save the session",
+    "BACK": "Back"
+  },
+  "CUPPING_CONSUMPTION_DIALOG": {
+    "TITLE": "Register Consumption",
+    "DATE_LABEL": "Date",
+    "LOT_LABEL": "Lot",
+    "FINAL_PRODUCT_LABEL": "Final Product",
+    "USED_QUANTITY_LABEL": "Quantity Used (kg)",
+    "LOT_SUMMARY_TITLE": "Lot Summary",
+    "PREVIOUS_MOVEMENTS_TITLE": "Previous movements",
+    "SUBMIT_BUTTON": "Register consumption"
+  },
+  "COST_MANAGEMENT": {
+    "TITLE": "Production Cost Management",
+    "STEP_LOT_SELECTION": "Lot Selection",
+    "STEP_DIRECT_COSTS": "Direct Costs",
+    "STEP_INDIRECT_COSTS": "Indirect Costs",
+    "STEP_SUMMARY": "Summary",
+    "LOT_LABEL": "Coffee Lot",
+    "CONTINUE": "Continue",
+    "CANCEL": "Cancel",
+    "BACK": "Back",
+    "FINISH_AND_SAVE": "View result",
+    "SAVE_DRAFT": "Save Draft",
+    "CALCULATING": "Calculating...",
+    "SUCCESS_MESSAGE": "Calculation complete. Nothing is saved on the server; you can download the PDF or start a new calculation.",
+    "REGISTRATION_CODE": "Calculation reference",
+    "EXIT": "Exit",
+    "PRINT_REPORT": "Print report",
+    "NEW_CALCULATION": "New Calculation",
+    "DOWNLOAD_PDF": "Download PDF",
+    "LOADING_LOTS": "Loading lots...",
+    "SAVING": "Saving...",
+    "CURRENCY": "$",
+    "CURRENCY_PER_KG": "$/kg",
+    "SUMMARY_TITLE": "Cost Summary",
+    "SUMMARY_TYPE": "Type",
+    "SUMMARY_AMOUNT": "Amount ($)",
+    "RAW_MATERIAL": "Raw Material",
+    "DIRECT_LABOR": "Direct Labor",
+    "INDIRECT_COSTS": "Indirect Costs",
+    "METRICS_COST_PER_KG": "Cost per Kilogram",
+    "METRICS_POTENTIAL_MARGIN": "Potential Margin",
+    "METRICS_SUGGESTED_PRICE": "Suggested Price",
+    "RAW_MATERIAL_COSTS_TITLE": "Raw Material Costs",
+    "COST_PER_KG_GREEN_COFFEE": "Cost per kg of green coffee",
+    "GREEN_COFFEE_QUANTITY_KG": "Green coffee quantity (kg)",
+    "TOTAL": "Total",
+    "DIRECT_LABOR_COSTS_TITLE": "Direct Labor Costs",
+    "HOURS_WORKED": "Hours worked",
+    "COST_PER_HOUR": "Cost per hour",
+    "NUMBER_OF_WORKERS": "Number of workers",
+    "TRANSPORT_COSTS": "Transport Costs",
+    "TRANSPORT_COST_PER_KG": "Cost per kg",
+    "TRANSPORT_QUANTITY_KG": "Quantity (kg)",
+    "STORAGE_COSTS": "Storage Costs",
+    "DAYS_IN_STORAGE": "Days in storage",
+    "DAILY_COST": "Daily cost",
+    "PROCESSING_COSTS": "Processing Costs",
+    "ELECTRICITY": "Electricity",
+    "WATER": "Water",
+    "SUPPLIES": "Supplies",
+    "MAINTENANCE": "Maintenance",
+    "DEPRECIATION": "Depreciation",
+    "OTHER_COSTS": "Other Costs",
+    "QUALITY_CONTROL": "Quality control",
+    "CERTIFICATIONS": "Certifications",
+    "INSURANCE": "Insurance",
+    "ADMINISTRATIVE": "Administrative",
+    "NO_LOTS": "You have no registered lots. Register a coffee lot first.",
+    "ERRORS": {
+      "AUTH_USER": "User not authenticated or invalid ID.",
+      "LOAD_LOTS": "Could not load lots.",
+      "FORM_REQUIRED": "Please complete all required fields.",
+      "INVALID_USER_LOT": "Invalid user or lot data.",
+      "INVALID_SELECTED_LOT": "The selected lot is not valid.",
+      "QUANTITY_KG_REQUIRED": "Enter a green coffee quantity (kg) greater than zero in direct costs."
+    },
+    "CATEGORY_TRANSPORT": "Transport",
+    "CATEGORY_STORAGE": "Storage",
+    "CATEGORY_PROCESSING": "Processing",
+    "CATEGORY_OTHERS": "Other"
+  },
+  "INVENTORY": {
+    "PAGE": {
+      "TOTAL": "Total",
+      "ORIGIN": "Origin",
+      "REGISTER_CONSUMPTION": "Register Consumption",
+      "RECENT_MOVEMENTS": "Recent Movements",
+      "TABLE": {
+        "DATE": "Date",
+        "PRODUCT": "Product",
+        "LOT": "Lot",
+        "QUANTITY": "Quantity",
+        "ACTIONS": "Actions"
+      }
+    },
+    "GREEN_COFFEE": "Green Coffee",
+    "ROASTED_COFFEE": "Roasted Coffee",
+    "SELECT_COFFEE_TYPE": "Select coffee type",
+    "TOTAL": "Total",
+    "TOTAL_ALL_TYPES": "Total stock (all types)",
+    "TOTAL_SELECTED_TYPE": "Stock for selected type",
+    "ACTIVE_LOTS": "Active lots",
+    "SUPPLIERS": "Suppliers",
+    "REGISTER_CONSUMPTION": "Register consumption",
+    "STOCK_STATUS": {
+      "LOW": "Low stock",
+      "ADEQUATE": "Adequate stock"
+    },
+    "CONSUMPTION_DIALOG": {
+      "TITLE": "Register Consumption",
+      "QUANTITY_USED": "Quantity Used (kg)",
+      "DATE_USED": "Date of Use",
+      "DATE": "Date",
+      "LOT": "Lot",
+      "FINAL_PRODUCT": "Final product",
+      "CONSUMPTION_KG": "Consumption (kg)",
+      "LOT_SUMMARY": "Lot summary",
+      "LOT_NAME": "Lot name",
+      "COFFEE_TYPE": "Coffee type",
+      "STATUS": "Status",
+      "TOTAL_WEIGHT": "Total weight",
+      "REMAINING_WEIGHT": "Remaining weight",
+      "SELECT_LOT_FOR_SUMMARY": "Select a lot to see summary",
+      "PREVIOUS_MOVEMENTS": "Previous movements",
+      "NO_PREVIOUS_MOVEMENTS": "No previous movements for this lot",
+      "CONFIRM": "Confirm",
+      "CANCEL": "Cancel",
+      "SAVE": "Save"
+    },
+    "ERRORS": {
+      "AUTH_USER": "User not authenticated or invalid ID.",
+      "LOAD_DATA": "Could not load inventory data.",
+      "INVALID_CONSUMPTION": "Invalid consumption data.",
+      "REGISTER_CONSUMPTION": "Could not register consumption.",
+      "SELECT_VALID_LOT": "Please select a valid lot.",
+      "NO_LOTS_FOR_STATUS": "There are no {{statusLabel}} coffee lots available to register consumption.",
+      "QUANTITY_EXCEEDS_STOCK": "The amount cannot exceed the lot's available stock."
+    },
+    "CONSUMPTION_TABLE": {
+      "TITLE": "Consumption History",
+      "DATE": "Date",
+      "LOT": "Lot",
+      "CONSUMPTION": "Consumption",
+      "CURRENT_STOCK": "Current lot stock",
+      "ACTIONS": "Actions",
+      "VIEW_DETAILS": "View details",
+      "NO_DATA": "No consumption records",
+      "LOT_FALLBACK": "Lot {{id}}"
+    },
+    "CONSUMPTION_DETAIL": {
+      "TITLE": "Consumption Details",
+      "DATE": "Date",
+      "LOT": "Lot",
+      "FINAL_PRODUCT": "Final product",
+      "CONSUMPTION": "Consumption",
+      "CURRENT_STOCK": "Current lot stock (now)",
+      "COFFEE_TYPE": "Coffee type",
+      "STATUS": "Status",
+      "CLOSE": "Close"
+    },
+    "TITLE": "Inventory",
+    "LOADING": "Loading inventory..."
+  },
+  "INVENTORY_BC": {
+    "ERRORS": {
+      "LOAD": "Inventory entries could not be loaded.",
+      "REGISTER": "Consumption could not be registered.",
+      "UPDATE": "The entry could not be updated.",
+      "DELETE": "The entry could not be deleted.",
+      "NETWORK": "Cannot reach the server.",
+      "UNAUTHORIZED": "The server did not accept your session (missing token, invalid token, or user not found). Sign out and sign in again.",
+      "NOT_FOUND": "The resource does not exist.",
+      "GENERIC": "Something went wrong."
+    }
+  },
+  "DEFECT_BC": {
+    "ERRORS": {
+      "LOAD": "Defect records could not be loaded.",
+      "REGISTER": "The defect record could not be saved.",
+      "DETAIL": "The defect record could not be loaded.",
+      "NETWORK": "Cannot reach the server.",
+      "UNAUTHORIZED": "The server did not accept your session (missing token, invalid token, or user not found). Sign out and sign in again.",
+      "GENERIC": "Something went wrong."
+    },
+    "LIST": {
+      "SEARCH_COFFEE": "Coffee",
+      "SEARCH_DEFECT": "Defect",
+      "TABLE": {
+        "WEIGHT": "Weight",
+        "COFFEE": "Coffee",
+        "DEFECT": "Defect",
+        "PERCENTAGE": "Percentage"
+      },
+      "ADD": "Add defect",
+      "NO_DATA": "No data"
+    },
+    "FORM": {
+      "TITLE": "Register defect",
+      "COFFEE_DATA": "Coffee data",
+      "COFFEE_NAME": "Coffee name",
+      "COFFEE_REGION": "Region",
+      "COFFEE_VARIETY": "Variety",
+      "COFFEE_WEIGHT": "Total weight (optional)",
+      "DEFECT_DATA": "Defect data",
+      "DEFECT_NAME": "Defect name",
+      "DEFECT_TYPE": "Defect type",
+      "DEFECT_WEIGHT": "Defect weight",
+      "DEFECT_PERCENTAGE": "Percentage",
+      "DEFECT_CAUSE": "Probable cause",
+      "DEFECT_SOLUTION": "Suggested solution",
+      "SAVE": "Save",
+      "CANCEL": "Cancel",
+      "ERRORS": {
+        "REQUIRED": "This field is required.",
+        "MAX_LENGTH": "Maximum {{max}} characters.",
+        "COFFEE_WEIGHT_NEGATIVE": "Total coffee weight cannot be negative.",
+        "DEFECT_WEIGHT_POSITIVE": "Defect weight must be greater than zero.",
+        "PERCENTAGE_RANGE": "Percentage must be between 0 and 100.",
+        "FIX_FORM": "Please fix the highlighted fields before saving."
+      }
+    },
+    "DETAIL": {
+      "TITLE": "Defect record",
+      "CAUSES": "Probable causes",
+      "SOLUTIONS": "Suggested solutions"
+    }
+  },
+  "CALIBRATIONS": {
+    "REGISTER_TITLE": "Register Calibration",
+    "METHOD_LABEL": "Method Selection",
+    "EQUIPMENT_LABEL": "Equipment Selection",
+    "GRIND_LABEL": "Grind Number",
+    "APERTURE_LABEL": "Aperture (mm)",
+    "CUP_VOLUME_LABEL": "Cup Volume (ml)",
+    "FINAL_VOLUME_LABEL": "Final Volume (ml)",
+    "DATE_LABEL": "Calibration Date",
+    "VISUALIZATION_LABEL": "Visualization",
+    "ATTACH_SAMPLES": "Attach samples",
+    "COMMENTS_LABEL": "Comments:",
+    "NOTES_LABEL": "Notes:",
+    "REGISTER_BUTTON": "Register Calibration",
+    "NAME_LABEL": "Calibration Name",
+    "SEARCH": "Search calibration...",
+    "TABLE": {
+      "NAME": "Name",
+      "METHOD": "Method",
+      "EQUIPMENT": "Equipment",
+      "APERTURE": "Aperture"
+    },
+    "REGISTER": "Register",
+    "NO_DATA": "No calibrations registered",
+    "EDIT_TITLE": "Edit Calibration",
+    "UPDATE_BUTTON": "Update",
+    "MORE_INFO_TITLE": "Calibration Information",
+    "COMMENTS_PLACEHOLDER": "e.g. Espresso density may vary between 0.95–1.05 g/mL",
+    "NOTES_PLACEHOLDER": "e.g. At higher altitude, water boils at a lower temperature",
+    "SAMPLE_IMAGE_ALT": "Calibration sample",
+    "IMAGE_LOADED": "Image on file"
+  },
+  "GRIND_CALIBRATION_BC": {
+    "ERRORS": {
+      "LOAD": "Calibrations could not be loaded.",
+      "REGISTER": "The calibration could not be saved.",
+      "UPDATE": "The calibration could not be updated.",
+      "DETAIL": "The calibration could not be loaded.",
+      "IMAGE_TOO_LARGE": "Image is too large. Choose one under 100 KB.",
+      "GENERIC": "Something went wrong."
+    }
+  },
+  "SUPPLIER_BC": {
+    "VALIDATION": {
+      "SUMMARY": "Check the fields highlighted below.",
+      "REQUIRED_FIELDS": "Please complete all required fields.",
+      "NAME_REQUIRED": "Enter the supplier name.",
+      "EMAIL_REQUIRED": "Enter the email address.",
+      "EMAIL_INVALID": "The email format is not valid.",
+      "PHONE_REQUIRED": "Enter the phone number.",
+      "PHONE_INVALID": "Enter a valid phone number (digits only, greater than zero).",
+      "LOCATION_REQUIRED": "Enter the location.",
+      "SPECIALTIES_MAX": "A maximum of 4 specialties is allowed.",
+      "SPECIALTY_DUPLICATE": "This specialty has already been added."
+    },
+    "CONFIRM_DELETE": "Are you sure you want to delete this supplier?",
+    "ERRORS": {
+      "LOAD": "Suppliers could not be loaded.",
+      "SEARCH": "Supplier search could not be completed.",
+      "REGISTER": "The supplier could not be registered.",
+      "UPDATE": "Supplier changes could not be saved.",
+      "DELETE": "The supplier could not be deleted.",
+      "NETWORK": "Cannot reach the server. Check your connection and try again.",
+      "UNAUTHORIZED": "Your session expired or you lack permission. Please sign in again.",
+      "NOT_FOUND": "This supplier does not exist or was already removed.",
+      "GENERIC": "Something went wrong. Please try again.",
+      "NOT_AUTHENTICATED_CREATE": "Sign in to register a supplier."
+    }
+  },
+  "COFFEE_LOT_BC": {
+    "HINT": {
+      "NEED_SUPPLIER": "Register at least one supplier before creating a lot.",
+      "SUPPLIER_FIXED_ON_EDIT": "This screen does not change the lot's supplier."
+    },
+    "VALIDATION": {
+      "SUMMARY": "Please fix the fields highlighted below.",
+      "LOT_NAME": "Enter the lot name.",
+      "COFFEE_TYPE": "Select a coffee type.",
+      "PROCESSING_METHOD": "Select a processing method.",
+      "ALTITUDE": "Altitude must be a number greater than zero.",
+      "WEIGHT": "Weight must be a number greater than zero.",
+      "ORIGIN": "Enter the origin.",
+      "STATUS": "Select the lot status.",
+      "SUPPLIER": "Select a supplier.",
+      "NO_SUPPLIERS": "You need at least one registered supplier."
+    },
+    "ERRORS": {
+      "LOAD": "Coffee lots could not be loaded.",
+      "LOAD_SUPPLIERS": "Suppliers could not be loaded.",
+      "SEARCH": "Lot search could not be completed.",
+      "REGISTER": "The lot could not be registered.",
+      "UPDATE": "The lot could not be updated.",
+      "DELETE": "The lot could not be deleted.",
+      "MISSING_ID": "The lot could not be identified.",
+      "NETWORK": "Cannot reach the server. Check your connection and try again.",
+      "UNAUTHORIZED": "Your session expired or you lack permission. Please sign in again.",
+      "NOT_FOUND": "This lot does not exist or was already removed.",
+      "GENERIC": "Something went wrong. Please try again.",
+      "NOT_AUTHENTICATED_CREATE": "Sign in to register a lot."
+    },
+    "OPTIONS": {
+      "COFFEE_TYPE": {
+        "ARABICA": "Arabica",
+        "ROBUSTA": "Robusta",
+        "BLEND": "Blend"
+      },
+      "PROCESSING": {
+        "ANAEROBIC": "Anaerobic",
+        "WASHED": "Washed",
+        "NATURAL": "Natural",
+        "HONEY": "Honey"
+      },
+      "CERTIFICATION": {
+        "FAIR_TRADE": "Fair Trade",
+        "BIRD_FRIENDLY": "Bird Friendly",
+        "UTZ": "UTZ certified",
+        "ORGANIC": "Organic",
+        "RAINFOREST": "Rainforest Alliance"
+      }
+    }
+  },
+  "ROAST_PROFILE_BC": {
+    "SEARCH_PLACEHOLDER": "Search by name, type, or lot…",
+    "LOADING": "Loading roast profiles…",
+    "EMPTY_TABLE": "No roast profiles registered yet.",
+    "PLACEHOLDER_CELSIUS": "°C",
+    "DELETE_TOOLTIP": "Delete profile",
+    "DUPLICATE_SUFFIX": " (copy)",
+    "HINT": {
+      "NEED_LOT": "Register at least one of your coffee lots before creating a roast profile."
+    },
+    "FIELD": {
+      "NAME": "Profile name",
+      "TYPE": "Roast type",
+      "DURATION": "Duration (min)",
+      "TEMP_START": "Starting temperature (°C)",
+      "TEMP_END": "Final temperature (°C)",
+      "LOT": "Linked lot",
+      "IS_FAVORITE": "Favorite"
+    },
+    "VALIDATION": {
+      "SUMMARY": "Please fix the fields highlighted below.",
+      "SUMMARY_TITLE": "Fix the following fields before continuing:",
+      "NAME": "Enter the profile name.",
+      "TYPE": "Select a roast type.",
+      "DURATION": "Duration must be a number greater than zero.",
+      "DURATION_MAX": "Duration cannot exceed 1440 minutes (24 hours).",
+      "TEMP_START": "Enter the starting temperature.",
+      "TEMP_END": "Enter the final temperature.",
+      "TEMP_RANGE": "Each temperature must be between 0 and 300 °C.",
+      "LOT": "Select a linked coffee lot.",
+      "NO_LOTS": "You need at least one registered coffee lot."
+    },
+    "ERRORS": {
+      "LOAD": "Roast profiles could not be loaded.",
+      "LOAD_LOTS": "Coffee lots could not be loaded.",
+      "SEARCH": "Search could not be completed.",
+      "FILTER": "Filters could not be applied.",
+      "REGISTER": "The roast profile could not be registered.",
+      "UPDATE": "The roast profile could not be updated.",
+      "DELETE": "The roast profile could not be deleted.",
+      "DUPLICATE": "The profile could not be duplicated.",
+      "TOGGLE_FAVORITE": "The favorite could not be updated.",
+      "MISSING_ID": "The profile could not be identified.",
+      "NETWORK": "Cannot reach the server. Check your connection and try again.",
+      "UNAUTHORIZED": "Your session expired or you lack permission. Please sign in again.",
+      "NOT_FOUND": "This profile does not exist or was already removed.",
+      "GENERIC": "Something went wrong. Please try again.",
+      "NOT_AUTHENTICATED_CREATE": "Sign in to register a roast profile."
+    },
+    "OPTIONS": {
+      "ROAST_TYPE": {
+        "LIGHT": "Light",
+        "MEDIUM": "Medium",
+        "MEDIUM_DARK": "Medium-dark",
+        "DARK": "Dark"
+      }
+    }
+  }
+}

@@ -1,0 +1,37 @@
+<div class="defect-file-container">
+  <div class="header">
+    <span class="title">{{ 'DEFECT_BC.DETAIL.TITLE' | translate }}</span>
+    <button class="close-btn" type="button" (click)="goBack()">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+
+  <ng-container *ngIf="entry">
+    <div class="main-options">
+      <div class="option causes" (click)="showCauses()">
+        <mat-icon>chevron_left</mat-icon>
+        {{ 'DEFECT_BC.DETAIL.CAUSES' | translate }}
+      </div>
+      <div class="option solutions" (click)="showSolutions()">
+        {{ 'DEFECT_BC.DETAIL.SOLUTIONS' | translate }}
+        <mat-icon>chevron_right</mat-icon>
+      </div>
+    </div>
+
+    <div *ngIf="show === 'causes'" class="details">
+      <button class="back-btn" type="button" (click)="showMain()">
+        <mat-icon>chevron_left</mat-icon>
+      </button>
+      <h2>{{ 'DEFECT_BC.DETAIL.CAUSES' | translate }}</h2>
+      <p>{{ entry.probableCause }}</p>
+    </div>
+
+    <div *ngIf="show === 'solutions'" class="details">
+      <button class="back-btn" type="button" (click)="showMain()">
+        <mat-icon>chevron_left</mat-icon>
+      </button>
+      <h2>{{ 'DEFECT_BC.DETAIL.SOLUTIONS' | translate }}</h2>
+      <p>{{ entry.suggestedSolution }}</p>
+    </div>
+  </ng-container>
+</div>

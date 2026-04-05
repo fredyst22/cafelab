@@ -1,0 +1,180 @@
+<mat-toolbar color="primary">
+  <app-toolbar />
+</mat-toolbar>
+
+<div class="body">
+  <div class="sesiones-container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a (click)="goToHome()">{{ 'BREADCRUMB.HOME' | translate }}</a>
+      <span class="breadcrumb-sep">&gt;</span>
+      <a *ngIf="!mostrarDetalle" (click)="refreshSesiones()">{{ 'BREADCRUMB.CUPPING_SESSIONS' | translate }}</a>
+      <a *ngIf="mostrarDetalle" (click)="cerrarDetalle()">{{ 'BREADCRUMB.CUPPING_SESSIONS' | translate }}</a>
+      <ng-container *ngIf="mostrarDetalle && sesionSeleccionada">
+        <span class="breadcrumb-sep">&gt;</span>
+        <span class="breadcrumb-current">{{ sesionSeleccionada.name }}</span>
+      </ng-container>
+    </nav>
+
+    <ng-container *ngIf="!mostrarDetalle">
+      <div class="actions-bar">
+        <div class="search-section">
+          <mat-form-field appearance="outline" class="search-field">
+            <mat-label>{{ 'CUPPING_SESSIONS.SEARCH_SESSIONS' | translate }}</mat-label>
+            <input matInput [(ngModel)]="searchText" [placeholder]="'CUPPING_SESSIONS.NAME' | translate" />
+            <mat-icon matSuffix>search</mat-icon>
+          </mat-form-field>
+          <button
+            mat-icon-button
+            type="button"
+            (click)="mostrarFiltros()"
+            class="filter-button"
+            [attr.aria-label]="'CUPPING_SESSIONS.OPEN_FILTERS' | translate">
+            <mat-icon>filter_list</mat-icon>
+          </button>
+        </div>
+        <mat-form-field appearance="outline" class="sort-field">
+          <mat-label>{{ 'CUPPING_SESSIONS.SORT_BY' | translate }}</mat-label>
+          <mat-select [(ngModel)]="sortMode">
+            <mat-option value="recent">{{ 'CUPPING_SESSIONS.SORT_RECENT' | translate }}</mat-option>
+            <mat-option value="oldest">{{ 'CUPPING_SESSIONS.SORT_OLDEST' | translate }}</mat-option>
+            <mat-option value="name">{{ 'CUPPING_SESSIONS.SORT_NAME' | translate }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-slide-toggle [(ngModel)]="favoritesOnly" class="favorites-toggle">
+          {{ 'CUPPING_SESSIONS.FAVORITES_ONLY' | translate }}
+        </mat-slide-toggle>
+        <button mat-raised-button class="compare-button" type="button" (click)="toggleComparacion()">
+          {{ 'CUPPING_SESSIONS.COMPARE' | translate }}
+        </button>
+      </div>
+
+      <table mat-table [dataSource]="sesionesFiltradas" class="mat-elevation-z8" *ngIf="!mostrarComparacion">
+        <ng-container matColumnDef="nombre">
+          <th mat-header-cell *matHeaderCellDef>{{ 'CUPPING_SESSIONS.NAME' | translate }}</th>
+          <td mat-cell *matCellDef="let sesion">
+            <a class="session-link" (click)="verDetalle(sesion)">{{ sesion.name }}</a>
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="fecha">
+          <th mat-header-cell *matHeaderCellDef>{{ 'CUPPING_SESSIONS.DATE' | translate }}</th>
+          <td mat-cell *matCellDef="let sesion">
+            <ng-container *ngIf="sesion.sessionDate?.length >= 10; else noSessionDate">
+              {{ (sesion.sessionDate.slice(0, 10) + 'T12:00:00') | date : 'mediumDate' }}
+            </ng-container>
+            <ng-template #noSessionDate>—</ng-template>
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="origen">
+          <th mat-header-cell *matHeaderCellDef>{{ 'CUPPING_SESSIONS.ORIGIN' | translate }}</th>
+          <td mat-cell *matCellDef="let sesion">{{ sesion.origin }}</td>
+        </ng-container>
+        <ng-container matColumnDef="variedad">
+          <th mat-header-cell *matHeaderCellDef>{{ 'CUPPING_SESSIONS.VARIETY' | translate }}</th>
+          <td mat-cell *matCellDef="let sesion">{{ sesion.variety }}</td>
+        </ng-container>
+        <ng-container matColumnDef="acciones">
+          <th mat-header-cell *matHeaderCellDef>{{ 'CUPPING_SESSIONS.ACTIONS' | translate }}</th>
+          <td mat-cell *matCellDef="let sesion">
+            <button
+              mat-icon-button
+              type="button"
+              (click)="toggleFavorito(sesion)"
+              [attr.aria-label]="'CUPPING_SESSIONS.TOGGLE_FAVORITE' | translate">
+              <mat-icon [class.favorito]="sesion.favorite">{{ sesion.favorite ? 'star' : 'star_border' }}</mat-icon>
+            </button>
+            <button
+              mat-icon-button
+              type="button"
+              (click)="verDetalle(sesion)"
+              [attr.aria-label]="'CUPPING_SESSIONS.VIEW_DETAILS' | translate">
+              <mat-icon>search</mat-icon>
+            </button>
+            <button
+              mat-icon-button
+              type="button"
+              (click)="confirmarEliminacion(sesion)"
+              class="delete-button"
+              [attr.aria-label]="'CUPPING_SESSIONS.DELETE_SESSION' | translate">
+              <mat-icon color="warn">delete</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      </table>
+
+      <div class="comparison-view" *ngIf="mostrarComparacion">
+        <h2 class="compare-title">{{ 'CUPPING_SESSIONS.COMPARE_TITLE' | translate }}</h2>
+        <div class="compare-selects">
+          <mat-form-field appearance="outline">
+            <mat-label>{{ 'CUPPING_SESSIONS.SELECT_SESSION_A' | translate }}</mat-label>
+            <mat-select [(ngModel)]="compareIdA">
+              <mat-option *ngFor="let s of sesionesFiltradas" [value]="s.id">{{ s.name }} — {{ s.sessionDate | slice : 0 : 10 }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>{{ 'CUPPING_SESSIONS.SELECT_SESSION_B' | translate }}</mat-label>
+            <mat-select [(ngModel)]="compareIdB">
+              <mat-option *ngFor="let s of sesionesFiltradas" [value]="s.id">{{ s.name }} — {{ s.sessionDate | slice : 0 : 10 }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <div class="compare-radars-section">
+          <h3 class="compare-radars-heading">{{ 'CUPPING_SESSIONS.COMPARE_VISUAL_RADARS' | translate }}</h3>
+          <p class="compare-radars-hint" *ngIf="!sesionCompareA || !sesionCompareB">
+            {{ 'CUPPING_SESSIONS.COMPARE_SELECT_TWO_RADARS' | translate }}
+          </p>
+          <div class="compare-radars-row">
+            <div class="compare-radar-card" *ngIf="sesionCompareA as sa">
+              <p class="compare-radar-session-name">{{ sa.name }}</p>
+              <app-cupping-sensory-radar
+                [scores]="sensoryA()"
+                [chartInstanceId]="'cmp-a-' + compareIdA"
+                accent="teal"
+                [compact]="true" />
+            </div>
+            <div class="compare-radar-card" *ngIf="sesionCompareB as sb">
+              <p class="compare-radar-session-name">{{ sb.name }}</p>
+              <app-cupping-sensory-radar
+                [scores]="sensoryB()"
+                [chartInstanceId]="'cmp-b-' + compareIdB"
+                accent="amber"
+                [compact]="true" />
+            </div>
+          </div>
+        </div>
+
+        <table mat-table [dataSource]="compareRows" class="mat-elevation-z2 compare-table">
+          <ng-container matColumnDef="metric">
+            <th mat-header-cell *matHeaderCellDef>{{ 'CUPPING_SESSIONS.COMPARE_METRIC' | translate }}</th>
+            <td mat-cell *matCellDef="let row">{{ row.labelKey | translate }}</td>
+          </ng-container>
+          <ng-container matColumnDef="a">
+            <th mat-header-cell *matHeaderCellDef>{{ 'CUPPING_SESSIONS.COMPARE_SESSION_A' | translate }}</th>
+            <td mat-cell *matCellDef="let row">{{ compareScoreA(row) }}</td>
+          </ng-container>
+          <ng-container matColumnDef="b">
+            <th mat-header-cell *matHeaderCellDef>{{ 'CUPPING_SESSIONS.COMPARE_SESSION_B' | translate }}</th>
+            <td mat-cell *matCellDef="let row">{{ compareScoreB(row) }}</td>
+          </ng-container>
+          <tr mat-header-row *matHeaderRowDef="['metric', 'a', 'b']"></tr>
+          <tr mat-row *matRowDef="let row; columns: ['metric', 'a', 'b']"></tr>
+        </table>
+      </div>
+
+      <div class="new-cata-button-container" *ngIf="!mostrarComparacion">
+        <button mat-raised-button type="button" (click)="iniciarNuevaCata()" class="new-cata-button">
+          {{ 'CUPPING_SESSIONS.RECORD_CUPPING' | translate }}
+        </button>
+      </div>
+    </ng-container>
+
+    <div class="detail-view" *ngIf="mostrarDetalle && sesionSeleccionada">
+      <app-detalles-cata
+        [sesion]="sesionSeleccionada"
+        (closed)="cerrarDetalle()"
+        (saved)="onSesionGuardada($event)"></app-detalles-cata>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,50 @@
+<div class="dialog-container">
+  <h2 class="dialog-title">{{ 'CUPPING_SESSIONS.FILTER_TITLE' | translate }}</h2>
+
+  <div class="filters-grid">
+    <div class="filter-item">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>{{ 'CUPPING_SESSIONS.ORIGIN' | translate }}</mat-label>
+        <mat-select [(ngModel)]="filtrosUi.origen">
+          <mat-option value="">{{ 'CUPPING_SESSIONS.FILTER_ANY' | translate }}</mat-option>
+          <mat-option *ngFor="let o of origenes" [value]="o">{{ o }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="filter-item">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>{{ 'CUPPING_SESSIONS.VARIETY' | translate }}</mat-label>
+        <mat-select [(ngModel)]="filtrosUi.variedad">
+          <mat-option value="">{{ 'CUPPING_SESSIONS.FILTER_ANY' | translate }}</mat-option>
+          <mat-option *ngFor="let v of variedades" [value]="v">{{ v }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="filter-item">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>{{ 'CUPPING_SESSIONS.DATE' | translate }}</mat-label>
+        <input matInput [matDatepicker]="picker" [(ngModel)]="filtrosUi.fecha" />
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </div>
+
+    <div class="filter-item">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>{{ 'CUPPING_SESSIONS.PROCESSING' | translate }}</mat-label>
+        <mat-select [(ngModel)]="filtrosUi.procesamiento">
+          <mat-option value="">{{ 'CUPPING_SESSIONS.FILTER_ANY' | translate }}</mat-option>
+          <mat-option *ngFor="let p of procesamientos" [value]="p">{{ p }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div class="actions">
+    <button mat-raised-button class="apply-button" (click)="aplicarFiltros()">
+      {{ 'CUPPING_SESSIONS.FILTER_APPLY' | translate }}
+    </button>
+  </div>
+</div>

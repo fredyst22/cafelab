@@ -1,0 +1,50 @@
+<div class="radar-root" [class.radar-pulse-active]="pulse" [class.radar-compact]="compact">
+  <svg
+    class="radar-svg"
+    viewBox="-118 -118 236 236"
+    xmlns="http://www.w3.org/2000/svg"
+    aria-hidden="true">
+    <defs>
+      <linearGradient [attr.id]="radarGradientId" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" [attr.stop-color]="fillStop1.color" [attr.stop-opacity]="fillStop1.opacity" />
+        <stop offset="100%" [attr.stop-color]="fillStop2.color" [attr.stop-opacity]="fillStop2.opacity" />
+      </linearGradient>
+    </defs>
+    <g class="radar-grid">
+      <polygon
+        *ngFor="let f of gridFractions"
+        [attr.points]="hexGridPoints(f)"
+        fill="none"
+        stroke="#c5cfc9"
+        stroke-width="1" />
+    </g>
+    <g class="radar-axes">
+      <line
+        *ngFor="let _ of axisKeys; let i = index"
+        x1="0"
+        y1="0"
+        [attr.x2]="axisLineEnd(i).x2"
+        [attr.y2]="axisLineEnd(i).y2"
+        stroke="#a8b5ae"
+        stroke-width="1" />
+    </g>
+    <polygon
+      class="radar-data"
+      [attr.points]="sensoryPolygonPoints()"
+      [attr.fill]="'url(#' + radarGradientId + ')'"
+      [attr.stroke]="strokeColor"
+      stroke-width="2"
+      stroke-linejoin="round" />
+    <g class="radar-labels">
+      <text
+        *ngFor="let _ of axisKeys; let i = index"
+        [attr.x]="axisLabelPos(i).x"
+        [attr.y]="axisLabelPos(i).y"
+        text-anchor="middle"
+        dominant-baseline="middle"
+        class="axis-label">
+        {{ axisLabelKeys[i] | translate }}
+      </text>
+    </g>
+  </svg>
+</div>

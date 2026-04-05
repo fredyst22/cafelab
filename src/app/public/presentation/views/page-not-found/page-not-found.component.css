@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:600,700&display=swap');
+
+.pnf-toolbar-wrap {
+  width: 100%;
+  min-height: 64px;
+  padding: 0;
+  background: #618985;
+}
+
+.pnf-background {
+  min-height: calc(100vh - 64px);
+  background-image: url('/assets/fondo_planes.png');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+  box-sizing: border-box;
+}
+
+.pnf-container {
+  width: 100%;
+  max-width: 520px;
+}
+
+.pnf-card {
+  position: relative;
+  background: #f8f7f2;
+  border-radius: 0.5rem;
+  box-shadow:
+    0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  padding: 2rem 2rem 2.25rem;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  overflow: hidden;
+}
+
+.pnf-accent-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: #c68f61;
+}
+
+.pnf-code {
+  margin: 0 0 0.5rem;
+  font-size: 3rem;
+  font-weight: 700;
+  color: #618985;
+  letter-spacing: 0.02em;
+  line-height: 1;
+}
+
+.pnf-title {
+  margin: 0 0 1rem;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #414535;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.pnf-message {
+  margin: 0 0 1.75rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #414535;
+  line-height: 1.5;
+  word-break: break-word;
+}
+
+.pnf-button {
+  background-color: #414535;
+  color: #fff;
+  padding: 0.65rem 2rem;
+  border-radius: 9999px;
+  border: none;
+  cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: background-color 0.2s;
+  min-width: 200px;
+}
+
+.pnf-button:hover {
+  background-color: #333228;
+}
+
+.pnf-button:focus-visible {
+  outline: 2px solid #618985;
+  outline-offset: 3px;
+}
+
+@media (max-width: 600px) {
+  .pnf-code {
+    font-size: 2.25rem;
+  }
+
+  .pnf-title {
+    font-size: 1.1rem;
+  }
+
+  .pnf-card {
+    padding: 1.5rem 1.25rem 1.75rem;
+  }
+
+  .pnf-button {
+    width: 100%;
+    min-width: unset;
+  }
+}

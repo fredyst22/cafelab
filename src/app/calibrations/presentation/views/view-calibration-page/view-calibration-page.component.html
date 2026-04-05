@@ -1,0 +1,14 @@
+<mat-toolbar color="primary">
+  <app-toolbar />
+</mat-toolbar>
+
+<div class="body">
+  <div class="calibration-page">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a (click)="goToHome()">{{ 'BREADCRUMB.HOME' | translate }}</a>
+      <span class="breadcrumb-sep">&gt;</span>
+      <span class="breadcrumb-current">{{ 'BREADCRUMB.GRIND_CALIBRATION' | translate }}</span>
+    </nav>
+    <app-view-calibration />
+  </div>
+</div>

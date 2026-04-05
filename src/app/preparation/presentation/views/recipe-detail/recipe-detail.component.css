@@ -1,0 +1,133 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 400px;
+}
+
+.error-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 400px;
+  text-align: center;
+}
+
+.error-container mat-icon {
+  font-size: 48px;
+  height: 48px;
+  width: 48px;
+  margin-bottom: 16px;
+}
+
+.recipe-card {
+  margin-bottom: 20px;
+  padding: 24px;
+}
+
+.recipe-header {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 20px;
+}
+
+.recipe-image {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.recipe-title {
+  flex-grow: 1;
+}
+
+.recipe-title h1 {
+  margin: 0;
+  color: #333;
+  font-size: 24px;
+}
+
+.extraction-method {
+  color: #666;
+  margin-top: 8px;
+}
+
+.recipe-info {
+  padding: 20px;
+}
+
+.info-section {
+  margin-bottom: 30px;
+}
+
+.info-section h2 {
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  font-weight: 500;
+  color: #666;
+  margin-bottom: 5px;
+}
+
+.steps-text, .tips-text {
+  white-space: pre-line;
+  line-height: 1.6;
+}
+
+.creation-date {
+  color: #666;
+  font-size: 0.9em;
+  text-align: right;
+  margin-top: 20px;
+}
+
+.edit-button, .delete-button {
+  position: absolute;
+  top: 20px;
+}
+
+.edit-button {
+  right: 60px;
+}
+
+.delete-button {
+  right: 20px;
+}
+
+@media (max-width: 768px) {
+  .recipe-header {
+    flex-direction: column;
+  }
+
+  .recipe-image {
+    width: 100%;
+    height: auto;
+  }
+
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+}

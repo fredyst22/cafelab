@@ -1,0 +1,115 @@
+<div class="detalle-toolbar">
+  <button mat-stroked-button type="button" (click)="volver()">
+    {{ 'CUPPING_DETAILS.BACK' | translate }}
+  </button>
+</div>
+
+<div class="detalle-container">
+  <div class="columna evaluacion-sensorial">
+    <h2 class="titulo-seccion">{{ 'CUPPING_DETAILS.TITLE' | translate }}</h2>
+    <div class="sliders-container">
+      <div class="slider-group">
+        <label>{{ 'CUPPING_DETAILS.AROMA' | translate }}</label>
+        <mat-slider min="1" max="10" step="1" discrete>
+          <input matSliderThumb [(ngModel)]="evaluacion.aroma" />
+        </mat-slider>
+        <span class="valor">{{ evaluacion.aroma }}</span>
+      </div>
+      <div class="slider-group">
+        <label>{{ 'CUPPING_DETAILS.BODY' | translate }}</label>
+        <mat-slider min="1" max="10" step="1" discrete>
+          <input matSliderThumb [(ngModel)]="evaluacion.cuerpo" />
+        </mat-slider>
+        <span class="valor">{{ evaluacion.cuerpo }}</span>
+      </div>
+      <div class="slider-group">
+        <label>{{ 'CUPPING_DETAILS.ACIDITY' | translate }}</label>
+        <mat-slider min="1" max="10" step="1" discrete>
+          <input matSliderThumb [(ngModel)]="evaluacion.acidez" />
+        </mat-slider>
+        <span class="valor">{{ evaluacion.acidez }}</span>
+      </div>
+      <div class="slider-group">
+        <label>{{ 'CUPPING_DETAILS.SWEETNESS' | translate }}</label>
+        <mat-slider min="1" max="10" step="1" discrete>
+          <input matSliderThumb [(ngModel)]="evaluacion.dulzor" />
+        </mat-slider>
+        <span class="valor">{{ evaluacion.dulzor }}</span>
+      </div>
+      <div class="slider-group">
+        <label>{{ 'CUPPING_DETAILS.BITTERNESS' | translate }}</label>
+        <mat-slider min="1" max="10" step="1" discrete>
+          <input matSliderThumb [(ngModel)]="evaluacion.amargor" />
+        </mat-slider>
+        <span class="valor">{{ evaluacion.amargor }}</span>
+      </div>
+      <div class="slider-group">
+        <label>{{ 'CUPPING_DETAILS.AFTERTASTE' | translate }}</label>
+        <mat-slider min="1" max="10" step="1" discrete>
+          <input matSliderThumb [(ngModel)]="evaluacion.aftertaste" />
+        </mat-slider>
+        <span class="valor">{{ evaluacion.aftertaste }}</span>
+      </div>
+    </div>
+    <button mat-raised-button class="action-button" type="button" (click)="generarHexagono()">
+      {{ 'CUPPING_DETAILS.GENERATE_HEXAGON' | translate }}
+    </button>
+  </div>
+
+  <div class="columna hexagono-sensorial">
+    <div class="hexagono-container">
+      <app-cupping-sensory-radar
+        [scores]="evaluacion"
+        [chartInstanceId]="'detail-' + sesion.id"
+        [pulse]="hexagonoAnimar" />
+    </div>
+    <div class="defectos-section">
+      <p>{{ 'CUPPING_DETAILS.DETECT_DEFECTS_PROMPT' | translate }}</p>
+      <button mat-raised-button class="action-button" type="button" (click)="abrirBibliotecaDefectos()">
+        {{ 'CUPPING_DETAILS.DEFECTS_LIBRARY_BUTTON' | translate }}
+      </button>
+    </div>
+  </div>
+
+  <div class="columna informacion">
+    <h3 class="config-title">{{ 'CUPPING_DETAILS.CONFIG_TITLE' | translate }}</h3>
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>{{ 'CUPPING_SESSIONS.NAME' | translate }}</mat-label>
+      <input matInput [(ngModel)]="configDraft.name" />
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>{{ 'CUPPING_DETAILS.ORIGIN' | translate }}</mat-label>
+      <input matInput [(ngModel)]="configDraft.origin" />
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>{{ 'CUPPING_DETAILS.VARIETY' | translate }}</mat-label>
+      <input matInput [(ngModel)]="configDraft.variety" />
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>{{ 'CUPPING_DETAILS.PROCESSING' | translate }}</mat-label>
+      <mat-select [(ngModel)]="configDraft.processing">
+        <mat-option *ngFor="let c of processingCodes" [value]="c">
+          {{ ('CUPPING_SESSIONS.PROCESSING_CODES.' + c) | translate }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>{{ 'CUPPING_DETAILS.DATE' | translate }}</mat-label>
+      <input matInput type="date" [(ngModel)]="configDraft.sessionDate" />
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>{{ 'CUPPING_DETAILS.ROAST_STYLE_NOTES' | translate }}</mat-label>
+      <textarea matInput rows="3" [(ngModel)]="configDraft.roastStyleNotes"></textarea>
+    </mat-form-field>
+
+    <button
+      mat-raised-button
+      color="primary"
+      class="action-button guardar-button"
+      type="button"
+      [disabled]="saving"
+      (click)="guardarSesion()">
+      {{ 'CUPPING_DETAILS.SAVE_SESSION_BUTTON' | translate }}
+    </button>
+  </div>
+</div>

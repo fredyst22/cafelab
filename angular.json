@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "libraryDefects": {
+    "cafe-lab": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -11,14 +11,10 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:application",
+          "builder": "@angular/build:application",
           "options": {
-            "outputPath": "dist/cafe-lab",
-            "index": "src/index.html",
             "browser": "src/main.ts",
-            "polyfills": [
-              "zone.js"
-            ],
+            "polyfills": ["zone.js"],
             "tsConfig": "tsconfig.app.json",
             "assets": [
               {
@@ -31,8 +27,6 @@
               "src/styles.css",
               "node_modules/leaflet/dist/leaflet.css",
               "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-
-
             ],
             "scripts": []
           },
@@ -67,27 +61,24 @@
           "defaultConfiguration": "production"
         },
         "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
+          "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "libraryDefects:build:production"
+              "buildTarget": "cafe-lab:build:production"
             },
             "development": {
-              "buildTarget": "libraryDefects:build:development"
+              "buildTarget": "cafe-lab:build:development"
             }
           },
           "defaultConfiguration": "development"
         },
         "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n"
+          "builder": "@angular/build:extract-i18n"
         },
         "test": {
-          "builder": "@angular-devkit/build-angular:karma",
+          "builder": "@angular/build:karma",
           "options": {
-            "polyfills": [
-              "zone.js",
-              "zone.js/testing"
-            ],
+            "polyfills": ["zone.js", "zone.js/testing"],
             "tsConfig": "tsconfig.spec.json",
             "assets": [
               {
@@ -106,6 +97,6 @@
     }
   },
   "cli": {
-    "analytics": "c2b179d3-7f19-49bb-b836-d8692376e37a"
+    "analytics": false
   }
 }

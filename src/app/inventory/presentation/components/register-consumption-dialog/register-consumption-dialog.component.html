@@ -1,0 +1,99 @@
+<div class="consumption-dialog">
+  <h2 mat-dialog-title class="dialog-title">
+    {{ 'INVENTORY.CONSUMPTION_DIALOG.TITLE' | translate }}
+  </h2>
+
+  <div *ngIf="loading" class="loading-indicator">
+    <div class="spinner"></div>
+    <p>{{ 'COMMON.LOADING' | translate }}</p>
+  </div>
+
+  <div *ngIf="error" class="error-message">
+    {{ error }}
+  </div>
+
+  <mat-dialog-content [formGroup]="form" *ngIf="!loading">
+    <div class="dialog-content">
+      <div class="form-column">
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>{{ 'INVENTORY.CONSUMPTION_DIALOG.DATE' | translate }}</mat-label>
+          <input matInput [matDatepicker]="picker" formControlName="date" required>
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>{{ 'INVENTORY.CONSUMPTION_DIALOG.LOT' | translate }}</mat-label>
+          <mat-select formControlName="lotId" required>
+            <mat-option *ngFor="let lot of availableLots" [value]="lot.id || 0" [disabled]="!lot.id">
+              {{ lot.lot_name }} ({{ lot.coffee_type }})
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>{{ 'INVENTORY.CONSUMPTION_DIALOG.FINAL_PRODUCT' | translate }}</mat-label>
+          <input matInput formControlName="finalProduct" required>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>{{ 'INVENTORY.CONSUMPTION_DIALOG.CONSUMPTION_KG' | translate }}</mat-label>
+          <input matInput type="number" formControlName="consumptionKg" required>
+        </mat-form-field>
+      </div>
+
+      <div class="summary-column">
+        <h3 class="summary-title">{{ 'INVENTORY.CONSUMPTION_DIALOG.LOT_SUMMARY' | translate }}</h3>
+        
+        <div class="summary-box" *ngIf="consumptionSummary">
+          <div class="summary-item">
+            <span class="summary-label">{{ 'INVENTORY.CONSUMPTION_DIALOG.LOT_NAME' | translate }}:</span>
+            <span class="summary-value">{{ consumptionSummary.lotName }}</span>
+          </div>
+          <div class="summary-item">
+            <span class="summary-label">{{ 'INVENTORY.CONSUMPTION_DIALOG.COFFEE_TYPE' | translate }}:</span>
+            <span class="summary-value">{{ consumptionSummary.coffeeType }}</span>
+          </div>
+          <div class="summary-item">
+            <span class="summary-label">{{ 'INVENTORY.CONSUMPTION_DIALOG.STATUS' | translate }}:</span>
+            <span class="summary-value">{{ lotStatusLabel(consumptionSummary.status) }}</span>
+          </div>
+          <div class="summary-item">
+            <span class="summary-label">{{ 'INVENTORY.CONSUMPTION_DIALOG.TOTAL_WEIGHT' | translate }}:</span>
+            <span class="summary-value">{{ consumptionSummary.totalWeight }} {{ 'COMMON.KG' | translate }}</span>
+          </div>
+          <div class="summary-item">
+            <span class="summary-label">{{ 'INVENTORY.CONSUMPTION_DIALOG.REMAINING_WEIGHT' | translate }}:</span>
+            <span class="summary-value">{{ consumptionSummary.remainingWeight }} {{ 'COMMON.KG' | translate }}</span>
+          </div>
+        </div>
+
+        <div class="summary-box empty" *ngIf="!consumptionSummary">
+          <p>{{ 'INVENTORY.CONSUMPTION_DIALOG.SELECT_LOT_FOR_SUMMARY' | translate }}</p>
+        </div>
+
+        <h3 class="summary-title">{{ 'INVENTORY.CONSUMPTION_DIALOG.PREVIOUS_MOVEMENTS' | translate }}</h3>
+        
+        <div class="movements-box" *ngIf="previousConsumptions.length > 0">
+          <div class="movement-item" *ngFor="let consumption of previousConsumptions">
+            <span class="movement-date">{{ consumption.date }}</span>
+            <span class="movement-quantity">{{ consumption.quantity }} {{ 'COMMON.KG' | translate }}</span>
+          </div>
+        </div>
+
+        <div class="movements-box empty" *ngIf="previousConsumptions.length === 0">
+          <p>{{ 'INVENTORY.CONSUMPTION_DIALOG.NO_PREVIOUS_MOVEMENTS' | translate }}</p>
+        </div>
+      </div>
+    </div>
+  </mat-dialog-content>
+
+  <mat-dialog-actions align="center" class="dialog-actions">
+    <button mat-button (click)="cancel()" class="cancel-button">
+      {{ 'INVENTORY.CONSUMPTION_DIALOG.CANCEL' | translate }}
+    </button>
+    <button mat-raised-button color="primary" (click)="submit()" [disabled]="form.invalid" class="confirm-button">
+      {{ 'INVENTORY.CONSUMPTION_DIALOG.CONFIRM' | translate }}
+    </button>
+  </mat-dialog-actions>
+</div>

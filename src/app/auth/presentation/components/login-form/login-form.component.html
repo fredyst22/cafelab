@@ -1,0 +1,34 @@
+<div class="login-form-container">
+  <h2>{{ 'LOGIN.TITLE' | translate }}</h2>
+  <p *ngIf="apiLoginError" class="login-api-error" role="alert">{{ apiLoginError }}</p>
+<form class="login-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+  <mat-form-field>
+    <mat-label>{{ 'LOGIN.EMAIL' | translate }}</mat-label>
+    <input matInput type="email" formControlName="email">
+    <mat-error *ngIf="isInvalidControl(loginForm, 'email')">
+      {{ errorMessagesForControl(loginForm, 'email') }}
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>{{ 'LOGIN.PASSWORD' | translate }}</mat-label>
+    <input matInput type="password" formControlName="password">
+    <mat-error *ngIf="isInvalidControl(loginForm, 'password')">
+      {{ errorMessagesForControl(loginForm, 'password') }}
+    </mat-error>
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" type="submit">
+    {{ 'LOGIN.SUBMIT' | translate }}
+  </button>
+</form>
+
+<div class="register-buttons">
+  <button mat-button (click)="onRegisterBarista()">
+    {{ 'LOGIN.REGISTER_BARISTA' | translate }}
+  </button>
+  <button mat-button (click)="onRegisterOwner()">
+    {{ 'LOGIN.REGISTER_OWNER' | translate }}
+  </button>
+</div>
+</div>

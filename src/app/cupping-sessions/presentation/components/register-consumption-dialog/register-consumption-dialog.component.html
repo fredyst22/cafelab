@@ -1,0 +1,51 @@
+<div class="dialog-container">
+  <h2 class="dialog-title">{{ 'CUPPING_CONSUMPTION_DIALOG.TITLE' | translate }}</h2>
+
+  <div class="dialog-content">
+    <div class="form-column">
+      <mat-form-field appearance="outline">
+        <mat-label>{{ 'CUPPING_CONSUMPTION_DIALOG.DATE_LABEL' | translate }}</mat-label>
+        <input matInput type="date" [(ngModel)]="date">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>{{ 'CUPPING_CONSUMPTION_DIALOG.LOT_LABEL' | translate }}</mat-label>
+        <mat-select [(ngModel)]="selectedLot">
+          // ... existing code ...
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>{{ 'CUPPING_CONSUMPTION_DIALOG.FINAL_PRODUCT_LABEL' | translate }}</mat-label>
+        <input matInput [(ngModel)]="productName">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>{{ 'CUPPING_CONSUMPTION_DIALOG.USED_QUANTITY_LABEL' | translate }}</mat-label>
+        <input matInput type="number" [(ngModel)]="quantity">
+      </mat-form-field>
+    </div>
+
+    <div class="info-column">
+      <div class="info-card">
+        <h3>{{ 'CUPPING_CONSUMPTION_DIALOG.LOT_SUMMARY_TITLE' | translate }}</h3>
+        <mat-card>
+          // ... existing code ...
+        </mat-card>
+      </div>
+
+      <div class="info-card">
+        <h3>{{ 'CUPPING_CONSUMPTION_DIALOG.PREVIOUS_MOVEMENTS_TITLE' | translate }}</h3>
+        <mat-card>
+          // ... existing code ...
+        </mat-card>
+      </div>
+    </div>
+  </div>
+
+  <div class="dialog-actions">
+    <button mat-raised-button class="submit-button" (click)="onSubmit()">
+      {{ 'CUPPING_CONSUMPTION_DIALOG.SUBMIT_BUTTON' | translate }}
+    </button>
+  </div>
+</div>

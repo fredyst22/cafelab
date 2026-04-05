@@ -1,0 +1,86 @@
+<div class="add-defect-container">
+  <h1 class="form-title">{{ 'DEFECT_BC.FORM.TITLE' | translate }}</h1>
+
+  <div *ngIf="apiBannerError" class="api-error-banner" role="alert">
+    {{ apiBannerError }}
+  </div>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="form-section">
+      <h2 class="section-title">{{ 'DEFECT_BC.FORM.COFFEE_DATA' | translate }}</h2>
+      <div class="form-row">
+        <mat-form-field appearance="fill">
+          <mat-label>{{ 'DEFECT_BC.FORM.COFFEE_NAME' | translate }}</mat-label>
+          <input matInput formControlName="coffeeDisplayName" />
+          <mat-error *ngIf="controlErrorMessage('coffeeDisplayName') as err">{{ err }}</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="form-row">
+        <mat-form-field appearance="fill">
+          <mat-label>{{ 'DEFECT_BC.FORM.COFFEE_REGION' | translate }}</mat-label>
+          <input matInput formControlName="coffeeRegion" />
+          <mat-error *ngIf="controlErrorMessage('coffeeRegion') as err">{{ err }}</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>{{ 'DEFECT_BC.FORM.COFFEE_VARIETY' | translate }}</mat-label>
+          <input matInput formControlName="coffeeVariety" />
+          <mat-error *ngIf="controlErrorMessage('coffeeVariety') as err">{{ err }}</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>{{ 'DEFECT_BC.FORM.COFFEE_WEIGHT' | translate }}</mat-label>
+          <input matInput formControlName="coffeeTotalWeight" type="number" step="0.01" />
+          <mat-error *ngIf="controlErrorMessage('coffeeTotalWeight') as err">{{ err }}</mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="form-section">
+      <h2 class="section-title">{{ 'DEFECT_BC.FORM.DEFECT_DATA' | translate }}</h2>
+      <div class="form-row">
+        <mat-form-field appearance="fill">
+          <mat-label>{{ 'DEFECT_BC.FORM.DEFECT_NAME' | translate }}</mat-label>
+          <input matInput formControlName="defectName" />
+          <mat-error *ngIf="controlErrorMessage('defectName') as err">{{ err }}</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>{{ 'DEFECT_BC.FORM.DEFECT_TYPE' | translate }}</mat-label>
+          <input matInput formControlName="defectType" />
+          <mat-error *ngIf="controlErrorMessage('defectType') as err">{{ err }}</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="form-row">
+        <mat-form-field appearance="fill">
+          <mat-label>{{ 'DEFECT_BC.FORM.DEFECT_WEIGHT' | translate }}</mat-label>
+          <input matInput formControlName="defectWeight" type="number" step="0.01" />
+          <mat-error *ngIf="controlErrorMessage('defectWeight') as err">{{ err }}</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>{{ 'DEFECT_BC.FORM.DEFECT_PERCENTAGE' | translate }}</mat-label>
+          <input matInput formControlName="percentage" type="number" step="0.1" />
+          <mat-error *ngIf="controlErrorMessage('percentage') as err">{{ err }}</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="form-row">
+        <mat-form-field appearance="fill" class="textarea-field">
+          <mat-label>{{ 'DEFECT_BC.FORM.DEFECT_CAUSE' | translate }}</mat-label>
+          <textarea matInput formControlName="probableCause" rows="3"></textarea>
+          <mat-error *ngIf="controlErrorMessage('probableCause') as err">{{ err }}</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="fill" class="textarea-field">
+          <mat-label>{{ 'DEFECT_BC.FORM.DEFECT_SOLUTION' | translate }}</mat-label>
+          <textarea matInput formControlName="suggestedSolution" rows="3"></textarea>
+          <mat-error *ngIf="controlErrorMessage('suggestedSolution') as err">{{ err }}</mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <button mat-raised-button color="primary" type="submit">
+        {{ 'DEFECT_BC.FORM.SAVE' | translate }}
+      </button>
+      <button mat-raised-button color="warn" type="button" (click)="onCancel()" style="margin-left: 16px">
+        {{ 'DEFECT_BC.FORM.CANCEL' | translate }}
+      </button>
+    </div>
+  </form>
+</div>

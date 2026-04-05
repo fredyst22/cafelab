@@ -1,0 +1,110 @@
+.detalle-toolbar {
+  padding: 0.5rem 2rem 0;
+}
+
+.detalle-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.config-title {
+  font-family: 'Nunito', sans-serif;
+  color: #414535;
+  margin-bottom: 1rem;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.columna {
+  padding: 1rem;
+}
+
+.titulo-seccion {
+  color: #414535;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  font-size: 24px;
+  margin-bottom: 2rem;
+}
+
+.sliders-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.slider-group {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.slider-group label {
+  min-width: 100px;
+  font-family: 'Nunito', sans-serif;
+}
+
+.slider-group mat-slider {
+  flex-grow: 1;
+}
+
+.valor {
+  min-width: 30px;
+  text-align: right;
+}
+
+.action-button {
+  background-color: #414535 !important;
+  color: white !important;
+  padding: 0.5rem 2rem;
+  width: fit-content;
+}
+
+.hexagono-container {
+  min-height: 280px;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  box-sizing: border-box;
+}
+
+.defectos-section {
+  text-align: center;
+}
+
+.defectos-section p {
+  margin-bottom: 1rem;
+  font-family: 'Nunito', sans-serif;
+}
+
+.info-section {
+  margin-bottom: 2rem;
+}
+
+.info-section h3 {
+  font-family: 'Nunito', sans-serif;
+  color: #414535;
+  margin-bottom: 0.5rem;
+}
+
+.info-section p {
+  font-family: 'Nunito', sans-serif;
+  font-size: 1.1rem;
+}
+
+.guardar-button {
+  width: 100%;
+}
+
+@media (max-width: 1024px) {
+  .detalle-container {
+    grid-template-columns: 1fr;
+  }
+}

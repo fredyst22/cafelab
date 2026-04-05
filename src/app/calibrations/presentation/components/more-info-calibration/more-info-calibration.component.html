@@ -1,0 +1,50 @@
+<div class="info-container" *ngIf="calibration">
+  <div class="info-title">{{ 'CALIBRATIONS.MORE_INFO_TITLE' | translate }}</div>
+  <div class="info-content">
+    <div class="info-image-section" *ngIf="calibration?.sampleImage">
+      <img [src]="calibration?.sampleImage" [attr.alt]="'CALIBRATIONS.SAMPLE_IMAGE_ALT' | translate" class="info-image" />
+    </div>
+    <div class="info-details-section">
+      <div class="info-row">
+        <span class="info-label">{{ 'CALIBRATIONS.NAME_LABEL' | translate }}:</span>
+        <span>{{ calibration?.name }}</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">{{ 'CALIBRATIONS.METHOD_LABEL' | translate }}:</span>
+        <span>{{ calibration?.method }}</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">{{ 'CALIBRATIONS.EQUIPMENT_LABEL' | translate }}:</span>
+        <span>{{ calibration?.equipment }}</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">{{ 'CALIBRATIONS.GRIND_LABEL' | translate }}:</span>
+        <span>{{ calibration?.grindNumber }}</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">{{ 'CALIBRATIONS.APERTURE_LABEL' | translate }}:</span>
+        <span>{{ calibration?.aperture }}</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">{{ 'CALIBRATIONS.CUP_VOLUME_LABEL' | translate }}:</span>
+        <span>{{ calibration?.cupVolume }}</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">{{ 'CALIBRATIONS.FINAL_VOLUME_LABEL' | translate }}:</span>
+        <span>{{ calibration?.finalVolume }}</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">{{ 'CALIBRATIONS.DATE_LABEL' | translate }}:</span>
+        <span>{{ calibration?.calibrationDate }}</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">{{ 'CALIBRATIONS.COMMENTS_LABEL' | translate }}</span>
+        <span>{{ calibration?.comments }}</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">{{ 'CALIBRATIONS.NOTES_LABEL' | translate }}</span>
+        <span>{{ calibration?.notes }}</span>
+      </div>
+    </div>
+  </div>
+</div>

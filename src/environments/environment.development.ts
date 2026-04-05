@@ -8,7 +8,7 @@ export const environment = {
   defectsEndpointPath: '/api/v1/defects',
   plansEndPointPath: '/plans',
   usersEndpointPath: '/users',
-  cuppingSessionsEndpointPath: '/cupping',
+  cuppingSessionsEndpointPath: '/api/v1/cupping-sessions',
   recipesEndpointPath: '/api/v1/recipes',
   portfoliosEndpointPath: '/api/v1/portfolios',
   ingredientsEndpointPath: '/api/v1/recipes/{recipeId}/ingredients',

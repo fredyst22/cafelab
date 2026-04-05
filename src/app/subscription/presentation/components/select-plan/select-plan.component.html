@@ -1,0 +1,50 @@
+<mat-toolbar color="primary">
+  <app-toolbar-component/>
+</mat-toolbar>
+
+<div class="background">
+  <div class="container">
+    <div class="plans-grid">
+
+      <div class="plan-card" *ngIf="showBaristaPlans">
+        <h2 class="plan-title">{{ 'PLANS.BARISTA.TITLE' | translate }}</h2>
+        <div class="plan-details">
+          <p class="plan-price">$9 / {{ 'PLANS.MONTH' | translate }}</p>
+          <ul class="plan-features" *ngIf="baristaFeatures.length">
+            <li *ngFor="let feature of baristaFeatures">• {{ feature }}</li>
+          </ul>
+        </div>
+        <button class="plan-button" (click)="selectPlan('barista')">
+          {{ 'PLANS.BARISTA.BUTTON' | translate }}
+        </button>
+      </div>
+
+      <div class="plan-card" *ngIf="showOwnerPlans">
+        <h2 class="plan-title">{{ 'PLANS.OWNER.TITLE' | translate }}</h2>
+        <div class="plan-details">
+          <p class="plan-price">$9 / {{ 'PLANS.MONTH' | translate }}</p>
+          <ul class="plan-features" *ngIf="ownerFeatures.length">
+            <li *ngFor="let feature of ownerFeatures">• {{ feature }}</li>
+          </ul>
+        </div>
+        <button class="plan-button" (click)="selectPlan('owner')">
+          {{ 'PLANS.OWNER.BUTTON' | translate }}
+        </button>
+      </div>
+
+      <div class="plan-card" *ngIf="showBaristaPlans || showOwnerPlans">
+        <h2 class="plan-title">{{ 'PLANS.FULL.TITLE' | translate }}</h2>
+        <div class="plan-details">
+          <p class="plan-price">$15 / {{ 'PLANS.MONTH' | translate }}</p>
+          <ul class="plan-features" *ngIf="fullFeatures.length">
+            <li *ngFor="let feature of fullFeatures">• {{ feature }}</li>
+          </ul>
+        </div>
+        <button class="plan-button" (click)="selectPlan('full')">
+          {{ 'PLANS.FULL.BUTTON' | translate }}
+        </button>
+      </div>
+
+    </div>
+  </div>
+</div>

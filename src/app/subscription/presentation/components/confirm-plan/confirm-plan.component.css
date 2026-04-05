@@ -1,0 +1,128 @@
+.background {
+  background-image: url('/assets/fondo_planes.png');
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center;
+}
+
+.container {
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 2.5rem 1rem;
+}
+
+.card {
+  background-color: #F8F7F2;
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  position: relative;
+
+  @media (min-width: 768px) {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.back-button {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background-color: #414535;
+  color: white;
+  padding: 0.5rem 1.5rem;
+  border-radius: 9999px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s;
+
+  &:hover {
+    background-color: #333228;
+  }
+}
+
+.plan-section {
+  .plan-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+
+  .plan-card {
+    background-color: #C68F61;
+    border-radius: 0.25rem;
+    padding: 1rem;
+    color: white;
+
+    .plan-price {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin: 0;
+    }
+
+    .plan-features {
+      margin-top: 0.5rem;
+      padding: 0;
+      list-style: none;
+
+      li {
+        margin-bottom: 0.25rem;
+      }
+    }
+  }
+}
+
+.payment-section {
+  .payment-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+
+  .payment-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    .form-input {
+      width: 90%;
+      border: 1px solid #d1d5db;
+      padding: 0.5rem 1rem;
+      border-radius: 0.25rem;
+      font-size: 1rem;
+      transition: border-color 0.2s, box-shadow 0.2s;
+
+      &:focus {
+        outline: none;
+        border-color: #414535;
+        box-shadow: 0 0 0 3px rgba(65, 69, 53, 0.1);
+      }
+
+      &::placeholder {
+        color: #9ca3af;
+      }
+    }
+
+    .submit-button {
+      background-color: #414535;
+      color: white;
+      padding: 0.5rem 1.5rem;
+      border-radius: 9999px;
+      border: none;
+      cursor: pointer;
+      align-self: flex-end;
+      transition: background-color 0.2s;
+
+      &:hover:not(:disabled) {
+        background-color: #333228;
+      }
+
+      &:disabled {
+        background-color: #9ca3af;
+        cursor: not-allowed;
+      }
+    }
+  }
+}

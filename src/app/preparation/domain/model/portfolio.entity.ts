@@ -1,0 +1,1 @@
+export type { BrewPortfolioEntry as Portfolio } from '../../../brew-portfolio/domain/model/brew-portfolio-entry.entity';
