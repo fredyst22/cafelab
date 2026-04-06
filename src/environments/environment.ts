@@ -1,6 +1,6 @@
 export const environment = {
   production: true,
-  serverBaseUrl: 'http://localhost:8080',
+  serverBaseUrl: 'https://cafelab-backend-production.up.railway.app',
   coffeeLotsEndpointPath: '/api/v1/coffee-lots',
   suppliersEndpointPath: '/api/v1/suppliers',
   roastProfileEndpointPath: '/api/v1/roast-profile',
